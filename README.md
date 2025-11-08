@@ -4,7 +4,4 @@ This project is meant to be the source code for a simple blog site that I will h
 
 The template for this blog was taken from satnaing/astro-paper. Thank you for providing such a clean base!
 
-## Planned features:
-
-- A simple but fluent embedding for codeblocks in markdown posts.
-- Moar themes.
+Check out the blog roadmap [here](.github/ROADMAP.md).

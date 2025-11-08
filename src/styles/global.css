@@ -20,7 +20,16 @@ html[data-theme="dark"] {
   --border: #ab4b08;
 }
 
-html[data-theme="catppuccin"] {
+html[data-theme="catppuccin-light"] {
+  /* Catppuccin Latte-inspired */
+  --background: #eff1f5;
+  --foreground: #4c4f69;
+  --accent: #8839ef;
+  --muted: #ccd0da;
+  --border: #acb0be;
+}
+
+html[data-theme="catppuccin-dark"] {
   /* Catppuccin Mocha-inspired */
   --background: #1e1e2e;
   --foreground: #cdd6f4;
@@ -29,7 +38,16 @@ html[data-theme="catppuccin"] {
   --border: #f38ba8;
 }
 
-html[data-theme="gruvbox"] {
+html[data-theme="gruvbox-light"] {
+  /* Gruvbox Light-inspired */
+  --background: #fbf1c7;
+  --foreground: #3c3836;
+  --accent: #d79921;
+  --muted: #ebdbb2;
+  --border: #7c6f64;
+}
+
+html[data-theme="gruvbox-dark"] {
   /* Gruvbox Dark-inspired */
   --background: #282828;
   --foreground: #ebdbb2;
