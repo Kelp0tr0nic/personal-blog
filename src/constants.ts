@@ -85,9 +85,9 @@ export const SHARE_LINKS: Social[] = [
 
 export const GISCUS: GiscusProps = {
   repo: "Kelp0tr0nic/personal-blog",
-  repoId: "REPO_ID",
-  category: "Announcements",
-  categoryId: "CATEGORY_ID",
+  repoId: "R_kgDOQRg5Hw",
+  category: "General",
+  categoryId: "DIC_kwDOQRg5H84CxlZE",
   mapping: "pathname",
   reactionsEnabled: "1",
   emitMetadata: "0",
