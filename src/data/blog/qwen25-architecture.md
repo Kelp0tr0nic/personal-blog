@@ -5,7 +5,7 @@ modDatetime: 2025-11-8T12:40:24Z
 title: Qwen 2.5 Architecture
 slug: qwen-2.5-arch
 featured: true
-draft: true
+draft: false
 tags:
   - color-schemes
 description:
