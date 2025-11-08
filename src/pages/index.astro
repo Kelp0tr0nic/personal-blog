@@ -25,7 +25,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
   <main id="main-content" data-layout="index">
     <section id="hero" class="pt-8 pb-6">
       <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Mingalaba
+        Hey, I’m Kalpesh 👋
       </h1>
       <a
         target="_blank"
@@ -43,20 +43,30 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       </a>
 
       <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+        I’m a junior developer based in the New York tri-state area, exploring
+        how AI tooling and web tech intersect. Expect hands-on write-ups about
+        experimenting with LLM protocols, automations, and the occasional
+        front-end flourish.
       </p>
       <p class="mt-2">
-        Read the blog posts or check
+        When I’m not shipping side projects, I’m sketching agent architectures
+        and testing ideas with friends in local meetups. Start with the latest
+        post or learn more about me below.
+      </p>
+      <div class="mt-4 flex flex-col gap-3 sm:flex-row">
         <LinkButton
           class="underline decoration-dashed underline-offset-4 hover:text-accent"
-          href="https://github.com/satnaing/astro-paper#readme"
+          href="/posts/understanding-mcp-and-a2a-protocols/"
         >
-          README
-        </LinkButton> for more info.
-      </p>
+          Read the featured post
+        </LinkButton>
+        <LinkButton
+          class="underline decoration-dashed underline-offset-4 hover:text-accent"
+          href="/about/"
+        >
+          About & Contact
+        </LinkButton>
+      </div>
       {
         // only display if at least one social link is enabled
         SOCIALS.length > 0 && (
