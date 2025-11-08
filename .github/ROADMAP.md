@@ -1,7 +1,7 @@
 # Roadmap
 
 ## 0. Foundation
-- Stabilize theme switcher with new palettes (Catppuccin, Gruvbox, Tokyo Storm) and expose them in UI toggles.
+- --Stabilize theme switcher with new palettes (Catppuccin, Gruvbox, Tokyo Storm) and expose them in UI toggles.--
 - Replace remaining AstroPaper references (strings, links) with project branding to avoid confusing visitors.
 
 ## 1. Content Experience
