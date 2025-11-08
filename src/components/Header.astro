@@ -1,10 +1,12 @@
 ---
 import Hr from "./Hr.astro";
 import IconX from "@/assets/icons/IconX.svg";
-import IconMoon from "@/assets/icons/IconMoon.svg";
 import IconSearch from "@/assets/icons/IconSearch.svg";
 import IconArchive from "@/assets/icons/IconArchive.svg";
+import IconMoon from "@/assets/icons/IconMoon.svg";
 import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
+import CatppuccinIcon from "@/assets/icons/Catppuccin.svg";
+import GruvboxIcon from "@/assets/icons/Gruvbox.svg";
 import IconMenuDeep from "@/assets/icons/IconMenuDeep.svg";
 import LinkButton from "./LinkButton.astro";
 import { SITE } from "@/config";
@@ -119,17 +121,46 @@ const isActive = (path: string) => {
           </li>
           {
             SITE.lightAndDarkMode && (
-              <li class="col-span-1 flex items-center justify-center">
-                <button
-                  id="theme-btn"
-                  class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent"
-                  title="Toggles light & dark"
-                  aria-label="auto"
-                  aria-live="polite"
-                >
-                  <IconMoon class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-                  <IconSunHigh class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-                </button>
+              <li class="col-span-2 flex items-center justify-center">
+                <div class="flex gap-2 sm:gap-1">
+                  <button
+                    type="button"
+                    class="theme-toggle group focus-outline relative flex size-12 items-center justify-center rounded-md border border-border transition hover:border-accent hover:bg-accent/10 sm:size-8 [aria-pressed='false']:opacity-65 data-[state=light]:border-accent data-[state=light]:bg-accent/10 data-[state=dark]:border-accent data-[state=dark]:bg-accent/15"
+                    data-theme-group="base"
+                    data-theme-light="light"
+                    data-theme-dark="dark"
+                    data-theme-label="Default"
+                    aria-pressed="false"
+                  >
+                    <IconSunHigh class="size-5 text-accent transition group-data-[state=dark]:scale-0 group-data-[state=dark]:rotate-90" />
+                    <IconMoon class="absolute left-1/2 top-1/2 size-5 -translate-x-1/2 -translate-y-1/2 scale-0 -rotate-90 text-accent transition group-data-[state=dark]:scale-100 group-data-[state=dark]:rotate-0" />
+                    <span class="sr-only">Toggle light and dark theme</span>
+                  </button>
+                  <button
+                    type="button"
+                    class="theme-toggle group focus-outline relative flex size-12 items-center justify-center rounded-md border border-border transition hover:border-accent hover:bg-accent/10 sm:size-8 [aria-pressed='false']:opacity-65 data-[state=light]:border-accent data-[state=light]:bg-accent/10 data-[state=dark]:border-accent data-[state=dark]:bg-accent/15"
+                    data-theme-group="catppuccin"
+                    data-theme-light="catppuccin-light"
+                    data-theme-dark="catppuccin-dark"
+                    data-theme-label="Catppuccin"
+                    aria-pressed="false"
+                  >
+                    <CatppuccinIcon class="size-5 text-accent" />
+                    <span class="sr-only">Toggle Catppuccin theme</span>
+                  </button>
+                  <button
+                    type="button"
+                    class="theme-toggle group focus-outline relative flex size-12 items-center justify-center rounded-md border border-border transition hover:border-accent hover:bg-accent/10 sm:size-8 [aria-pressed='false']:opacity-65 data-[state=light]:border-accent data-[state=light]:bg-accent/10 data-[state=dark]:border-accent data-[state=dark]:bg-accent/15"
+                    data-theme-group="gruvbox"
+                    data-theme-light="gruvbox-light"
+                    data-theme-dark="gruvbox-dark"
+                    data-theme-label="Gruvbox"
+                    aria-pressed="false"
+                  >
+                    <GruvboxIcon class="size-5 text-accent" />
+                    <span class="sr-only">Toggle Gruvbox theme</span>
+                  </button>
+                </div>
               </li>
             )
           }
