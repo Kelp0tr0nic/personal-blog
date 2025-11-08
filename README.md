@@ -1,2 +1,10 @@
-# personal-blog
-Here I document my various endeavors as a human being, programmer, and unintentional AI slop trainer.
+# Hello World 👋
+
+This project is meant to be the source code for a simple blog site that I will have hosted on my own domain coming soon...
+
+The template for this blog was taken from satnaing/astro-paper. Thank you for providing such a clean base!
+
+## Planned features:
+
+- A simple but fluent embedding for codeblocks in markdown posts.
+- Moar themes.
