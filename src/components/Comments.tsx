@@ -46,7 +46,26 @@ export default function Comments({
     const applyThemeFromDom = () => {
       const current = (document.documentElement.getAttribute("data-theme") ??
         resolveTheme()) as ThemeToken;
-      setTheme(toUiTheme(current, lightTheme, darkTheme));
+      let nextTheme: Theme;
+
+      switch (current) {
+        case "catppuccin-light":
+          nextTheme = "catppuccin_latte";
+          break;
+        case "catppuccin-dark":
+          nextTheme = "catppuccin_mocha";
+          break;
+        case "gruvbox-light":
+          nextTheme = "gruvbox_light";
+          break;
+        case "gruvbox-dark":
+          nextTheme = "gruvbox_dark";
+          break;
+        default:
+          nextTheme = toUiTheme(current, lightTheme, darkTheme);
+      }
+
+      setTheme(nextTheme);
     };
 
     applyThemeFromDom();
