@@ -4,7 +4,7 @@ pubDatetime: 2025-11-08T17:28:51.000-05:00
 modDatetime: 
 title: A Crash Course in Machine Learning
 featured: false
-draft: true
+draft: false
 tags:
   - Machine Learning
   - Deep Learning
