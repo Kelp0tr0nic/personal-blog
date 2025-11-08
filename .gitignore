@@ -1,6 +1,9 @@
 # build output
 dist/
 
+# agent instructions
+AGENTS.md
+
 # generated types
 .astro/
 
@@ -24,5 +27,4 @@ pnpm-debug.log*
 .idea/
 
 # pagefind
-
 public/pagefind
