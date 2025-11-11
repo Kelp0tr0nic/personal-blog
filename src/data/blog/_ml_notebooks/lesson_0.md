@@ -1,9 +1,9 @@
 ---
 title: "Lesson 1: The Math Behind Deep Learning"
-author: Kalpesh Chavan
+author: Kalpesh Chava
 description: Lecture notes converted from Jupyter notebooks.
 pubDatetime: 2025-11-11T04:10:20Z
-modDatetime: 2025-11-11T18:01:21Z
+modDatetime: 2025-11-11T18:10:50Z
 draft: false
 tags:
   - notebook
