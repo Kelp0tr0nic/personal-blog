@@ -1,10 +1,10 @@
 ---
-title: "Lesson 1: The Math Behind Deep Learning"
+title: Lesson 0
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2025-11-11T04:10:20Z
+pubDatetime: 2025-11-11T06:56:57Z
 modDatetime:
-draft: false
+draft: true
 tags:
   - notebook
   - math
@@ -835,7 +835,6 @@ And in general:
 $$\frac{\partial Error}{\partial w_j} = \frac{1}{n}\sum_{i = 1}^n 2 * (Y_i - (w_1x_1^i + w_2x_2^i + \ldots + w_nx_n^i + b)) \cdot -x_j^i$$
 
 This formula can be used to construct $\nabla Error = $
-
 $$\nabla Error = \begin{bmatrix} \frac{\partial Error}{\partial w_1} \\ \frac{\partial Error}{\partial w_2} \\ \vdots \\ \frac{\partial Error}{\partial w_n} \end{bmatrix} = (\frac{\partial Error}{\partial w_1}, \frac{\partial Error}{\partial w_2}, \ldots, \frac{\partial Error}{\partial w_n})$$
 
 Furthermore I can quickly find: $\frac{\partial Error}{\partial b}$
@@ -974,37 +973,31 @@ $$\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \end{
 
 Suppose $X$ is no longer a simple vector of inputs but rather a matrix of inputs for each data point. Each row corresponds to a different data vector, and each column corresponds to an input feature. The following matrix would be made for n data points which each have m features:
 
-$$
-X = 
-\begin{bmatrix} 
+$$X = \begin{bmatrix} 
 x_{1, 1} & x_{1, 2} & x_{1, 3} & \ldots & x_{1, m} \\
 x_{2, 1} & x_{2, 2} & x_{2, 3} & \ldots & x_{2, m} \\
 x_{3, 1} & x_{3, 2} & x_{3, 3} & \ldots & x_{3, m} \\
 \ldots & \ldots & \ldots & \ldots & \ldots \\
 x_{n, 1} & x_{n, 2} & x_{n, 3} & \ldots & x_{n, m} \\
-\end{bmatrix}
-$$
+\end{bmatrix}$$
 
 Ex: $x_{1, 3}$ would correspond to the third feature of the first data vector.
 
 Now what would happen if we multiplied this matrix by a column matrix of weights? Well the number of weights would be simply 1 per feature, so m weights:
 
 $$W = \begin{bmatrix} w_1 \\ w_2 \\ w_3 \\ \ldots \\ w_m\end{bmatrix}$$
-Note that this multiplication is perfectly compatible because X would have m columns and W would have m rows! (And n, the number of datapoints, could be any value, and the matrix multiplication would still work out!)
 
+Note that this multiplication is perfectly compatible because X would have m columns and W would have m rows! (And n, the number of datapoints, could be any value, and the matrix multiplication would still work out!)
 
 Lets do the multiplication:
 
-$$
-X \cdot W = 
-\begin{bmatrix} 
+$$X \cdot W = \begin{bmatrix} 
 x_{1, 1}w_1 + x_{1, 2}w_2 + x_{1, 3}w_3 + \ldots + x_{1, m}w_m \\
 x_{2, 1}w_1 + x_{2, 2}w_2 + x_{2, 3}w_3 + \ldots + x_{2, m}w_m \\
 x_{3, 1}w_1 + x_{3, 2}w_2 + x_{3, 3}w_3 + \ldots + x_{3, m}w_m \\
 \ldots \\
 x_{n, 1}w_1 + x_{n, 2}w_2 + x_{n, 3} + \ldots + x_{n, m}w_m
-\end{bmatrix}
-$$
+\end{bmatrix}$$
 
 Wow, the resulting matrix coincidentally calculates the dot product of each input vector i and the weights vector W. Resulting in a matrix of n rows and 1 column. Each row contains the prediction for that ith data point (the dot product of $X_i$ as a vector and the weight vector).
 
@@ -1012,15 +1005,13 @@ Wow, the resulting matrix coincidentally calculates the dot product of each inpu
 
 Lets call the resulting matrix P ( for predictions :smile: ) (make sure to add the bias term, b):
 
-$$P = X \cdot W = 
-\begin{bmatrix} 
+$$P = X \cdot W = \begin{bmatrix} 
 x_{1, 1}w_1 + x_{1, 2}w_2 + x_{1, 3}w_3 + \ldots + x_{1, m}w_m \\
 x_{2, 1}w_1 + x_{2, 2}w_2 + x_{2, 3}w_3 + \ldots + x_{2, m}w_m \\
 x_{3, 1}w_1 + x_{3, 2}w_2 + x_{3, 3}w_3 + \ldots + x_{3, m}w_m \\
 \ldots \\
 x_{n, 1}w_1 + x_{n, 2}w_2 + x_{n, 3} + \ldots + x_{n, m}w_m
 \end{bmatrix} + b =
-
 \begin{bmatrix} 
 x_{1, 1}w_1 + x_{1, 2}w_2 + x_{1, 3}w_3 + \ldots + x_{1, m}w_m + b\\
 x_{2, 1}w_1 + x_{2, 2}w_2 + x_{2, 3}w_3 + \ldots + x_{2, m}w_m + b\\
@@ -1093,42 +1084,35 @@ We should be able to see that $j$ corresponds to the index of the input feature,
 
 Suppose
 
-$$
-X = 
-\begin{bmatrix} 
+$$X = \begin{bmatrix} 
 x_{1, 1} & x_{1, 2} & x_{1, 3} & \ldots & x_{1, m} \\
 x_{2, 1} & x_{2, 2} & x_{2, 3} & \ldots & x_{2, m} \\
 x_{3, 1} & x_{3, 2} & x_{3, 3} & \ldots & x_{3, m} \\
 \ldots & \ldots & \ldots & \ldots & \ldots \\
 x_{n, 1} & x_{n, 2} & x_{n, 3} & \ldots & x_{n, m} \\
-\end{bmatrix}
-$$
+\end{bmatrix}$$
 
 and
 
-$$R =
-\begin{bmatrix} 
+$$R = \begin{bmatrix} 
 Y_1 - (x_{1, 1}w_1 + x_{1, 2}w_2 + x_{1, 3}w_3 + \ldots + x_{1, m}w_m + b) \\
 Y_2 - (x_{2, 1}w_1 + x_{2, 2}w_2 + x_{2, 3}w_3 + \ldots + x_{2, m}w_m + b) \\
 Y_3 - (x_{3, 1}w_1 + x_{3, 2}w_2 + x_{3, 3}w_3 + \ldots + x_{3, m}w_m + b) \\
 \ldots \\
 Y_n - (x_{n, 1}w_1 + x_{n, 2}w_2 + x_{n, 3} + \ldots + x_{n, m}w_m + b)
-\end{bmatrix}
-$$
+\end{bmatrix}$$
 
 Note that both matrices have n rows, but in order to multiply them, one matrix should have n columns, while the other one should have n rows. To do this we can take the transpose (write each row as a column) of either matrix (but not both). And then we can multiply them together.
 
 Suppose we take the transpose of X:
 
-$$X^T = 
-\begin{bmatrix}
+$$X^T = \begin{bmatrix}
 x_{1, 1} & x_{2, 1} & x_{3, 1} & \ldots & x_{n, 1} \\
 x_{1, 2} & x_{2, 2} & x_{3, 2} & \ldots & x_{n, 2} \\
 x_{1, 3} & x_{2, 3} & x_{3, 3} & \ldots & x_{n, 3} \\
 \ldots & \ldots & \ldots & \ldots & \ldots \\
 x_{1, m} & x_{2, m} & x_{3, m} & \ldots & x_{n, m}
-\end{bmatrix}
-$$
+\end{bmatrix}$$
 
 Now if we multiply the two matrices together we end up with a rather gargantuan matrix:
 
@@ -1202,15 +1186,13 @@ $$
 
 Once again lets took at the role that the bias plays in or calculations
 
-$$R = 
-\begin{bmatrix} 
+$$R = \begin{bmatrix} 
 Y_1 - (x_{1, 1}w_1 + x_{1, 2}w_2 + x_{1, 3}w_3 + \ldots + x_{1, m}w_m + b) \\
 Y_2 - (x_{2, 1}w_1 + x_{2, 2}w_2 + x_{2, 3}w_3 + \ldots + x_{2, m}w_m + b) \\
 Y_3 - (x_{3, 1}w_1 + x_{3, 2}w_2 + x_{3, 3}w_3 + \ldots + x_{3, m}w_m + b) \\
 \ldots \\
 Y_n - (x_{n, 1}w_1 + x_{n, 2}w_2 + x_{n, 3} + \ldots + x_{n, m}w_m + b)
-\end{bmatrix}
-$$
+\end{bmatrix}$$
 
 $$Error = \frac{1}{n} \sum_{i=1}^n (R[i, 1])^2$$
 
