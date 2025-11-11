@@ -2,7 +2,7 @@
 title: Lesson 5-1 Cnns
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2025-11-11T03:47:30Z
+pubDatetime: 2025-11-11T03:53:55Z
 modDatetime:
 draft: true
 tags:
@@ -639,50 +639,52 @@ keras_training_process()
 
 ```
 
-    2025-06-24 06:15:38.826335: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:467] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-    WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-    E0000 00:00:1750760138.841675   24725 cuda_dnn.cc:8579] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-    E0000 00:00:1750760138.846163   24725 cuda_blas.cc:1407] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-    W0000 00:00:1750760138.860465   24725 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-    W0000 00:00:1750760138.860491   24725 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-    W0000 00:00:1750760138.860493   24725 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-    W0000 00:00:1750760138.860494   24725 computation_placer.cc:177] computation placer already registered. Please check linkage and avoid linking the same target more than once.
-    2025-06-24 06:15:38.866613: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
-    To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-    /home/kelpfries/miniconda3/envs/ml_env/lib/python3.12/site-packages/keras/src/layers/convolutional/base_conv.py:113: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.
+    2025-10-10 13:13:35.889056: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+    2025-10-10 13:13:36.106208: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+    To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+    2025-10-10 13:13:37.090551: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+    /opt/miniforge/envs/mlshit/lib/python3.12/site-packages/keras/src/layers/convolutional/base_conv.py:113: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.
       super().__init__(activity_regularizer=activity_regularizer, **kwargs)
-    I0000 00:00:1750760141.413734   24725 gpu_device.cc:2019] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5563 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 4060 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 8.9
+    WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+    I0000 00:00:1760116418.060429   10338 gpu_device.cc:2020] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 8239 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 4070 SUPER, pci bus id: 0000:01:00.0, compute capability: 8.9
 
 
     Epoch 1/5
 
 
-    WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-    I0000 00:00:1750760142.977260   24947 service.cc:152] XLA service 0x7f38e400a9a0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
-    I0000 00:00:1750760142.977306   24947 service.cc:160]   StreamExecutor device (0): NVIDIA GeForce RTX 4060 Laptop GPU, Compute Capability 8.9
-    2025-06-24 06:15:42.999849: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
-    I0000 00:00:1750760143.113379   24947 cuda_dnn.cc:529] Loaded cuDNN version 90501
-    2025-06-24 06:15:44.025841: I external/local_xla/xla/stream_executor/cuda/subprocess_compilation.cc:346] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_dot_250', 4 bytes spill stores, 4 bytes spill loads
+    2025-10-10 13:13:39.003295: I external/local_xla/xla/service/service.cc:163] XLA service 0x7f8e7800a750 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+    2025-10-10 13:13:39.003305: I external/local_xla/xla/service/service.cc:171]   StreamExecutor device (0): NVIDIA GeForce RTX 4070 SUPER, Compute Capability 8.9
+    2025-10-10 13:13:39.019849: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+    2025-10-10 13:13:39.100344: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:473] Loaded cuDNN version 91300
+    2025-10-10 13:13:39.117896: I external/local_xla/xla/service/gpu/autotuning/dot_search_space.cc:208] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs? Working around this by using the full hints set instead.
+    2025-10-10 13:13:39.728592: I external/local_xla/xla/stream_executor/cuda/subprocess_compilation.cc:346] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_dot_541', 420 bytes spill stores, 420 bytes spill loads
     
 
 
-    [1m 76/844[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m1s[0m 2ms/step - accuracy: 0.5873 - loss: 1.3309
+    [1m171/844[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m0s[0m 889us/step - accuracy: 0.7463 - loss: 0.8314
 
-    I0000 00:00:1750760145.693846   24947 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+    I0000 00:00:1760116420.688022   10905 device_compiler.h:196] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
 
 
-    [1m844/844[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m9s[0m 6ms/step - accuracy: 0.8811 - loss: 0.3885 - val_accuracy: 0.9828 - val_loss: 0.0584
+    [1m843/844[0m [32m━━━━━━━━━━━━━━━━━━━[0m[37m━[0m [1m0s[0m 900us/step - accuracy: 0.8909 - loss: 0.3582
+
+    2025-10-10 13:13:41.540759: I external/local_xla/xla/service/gpu/autotuning/dot_search_space.cc:208] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs? Working around this by using the full hints set instead.
+    2025-10-10 13:13:41.995214: I external/local_xla/xla/stream_executor/cuda/subprocess_compilation.cc:346] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_dot_541', 240 bytes spill stores, 240 bytes spill loads
+    
+
+
+    [1m844/844[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m5s[0m 3ms/step - accuracy: 0.9513 - loss: 0.1587 - val_accuracy: 0.9870 - val_loss: 0.0498
     Epoch 2/5
-    [1m844/844[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m2s[0m 3ms/step - accuracy: 0.9857 - loss: 0.0482 - val_accuracy: 0.9878 - val_loss: 0.0457
+    [1m844/844[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 1ms/step - accuracy: 0.9837 - loss: 0.0497 - val_accuracy: 0.9862 - val_loss: 0.0440
     Epoch 3/5
-    [1m844/844[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m3s[0m 3ms/step - accuracy: 0.9895 - loss: 0.0321 - val_accuracy: 0.9900 - val_loss: 0.0333
+    [1m844/844[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 1ms/step - accuracy: 0.9895 - loss: 0.0331 - val_accuracy: 0.9878 - val_loss: 0.0407
     Epoch 4/5
-    [1m844/844[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m3s[0m 4ms/step - accuracy: 0.9936 - loss: 0.0208 - val_accuracy: 0.9900 - val_loss: 0.0338
+    [1m844/844[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 1ms/step - accuracy: 0.9919 - loss: 0.0255 - val_accuracy: 0.9888 - val_loss: 0.0416
     Epoch 5/5
-    [1m844/844[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m6s[0m 7ms/step - accuracy: 0.9945 - loss: 0.0168 - val_accuracy: 0.9913 - val_loss: 0.0347
-    [1m157/157[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 7ms/step - accuracy: 0.9897 - loss: 0.0325
+    [1m844/844[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 1ms/step - accuracy: 0.9944 - loss: 0.0181 - val_accuracy: 0.9920 - val_loss: 0.0304
+    [1m157/157[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 3ms/step - accuracy: 0.9906 - loss: 0.0302
     
-    Test accuracy: 0.9914
+    Test accuracy: 0.9906
 
 
 
@@ -787,23 +789,23 @@ keras_custom_training()
     Using device: GPU
 
 
-    2025-06-24 06:16:43.197186: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+    2025-10-10 13:14:06.548588: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
 
 
-    Epoch 1/20 — Loss: 0.1771
+    Epoch 1/20 — Loss: 0.1800
 
 
-    2025-06-24 06:17:17.435979: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+    2025-10-10 13:14:24.939195: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
 
 
-    Epoch 2/20 — Loss: 0.0761
+    Epoch 2/20 — Loss: 0.0770
     Epoch 3/20 — Loss: 0.0642
-    Epoch 4/20 — Loss: 0.0579
+    Epoch 4/20 — Loss: 0.0582
     Early stopping: 3 epochs below 0.08.
     Training complete!
 
 
-    2025-06-24 06:18:26.670115: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+    2025-10-10 13:15:01.614681: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
 
 
 
@@ -929,17 +931,20 @@ tensorflow_training_loop()
 ```
 
     Using device: GPU
-    Epoch 1/20 — Loss: 0.1605
-    Epoch 2/20 — Loss: 0.0667
-    Epoch 3/20 — Loss: 0.0539
-    Epoch 4/20 — Loss: 0.0485
+    Epoch 1/20 — Loss: 0.1666
+    Epoch 2/20 — Loss: 0.0647
+    Epoch 3/20 — Loss: 0.0532
+    Epoch 4/20 — Loss: 0.0483
     Early stopping: 3 epochs below 0.08.
     Training complete!
 
 
+    2025-10-10 13:16:00.820805: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+
+
 
     
-![png](/notebooks/lesson-5-1-cnns/lesson_5-1_CNNs_11_1.png)
+![png](/notebooks/lesson-5-1-cnns/lesson_5-1_CNNs_11_2.png)
     
 
 
@@ -1046,10 +1051,10 @@ plt.show()
 ```
 
     Using device: cuda
-    Epoch 1/20 — Loss: 0.1857
-    Epoch 2/20 — Loss: 0.0542
-    Epoch 3/20 — Loss: 0.0388
-    Epoch 4/20 — Loss: 0.0295
+    Epoch 1/20 — Loss: 0.1843
+    Epoch 2/20 — Loss: 0.0556
+    Epoch 3/20 — Loss: 0.0382
+    Epoch 4/20 — Loss: 0.0316
     Early stopping: 3 epochs below 0.08.
     Training complete!
 
@@ -1447,8 +1452,8 @@ run_test(TinyNoBN, "No BatchNorm")
 run_test(TinyWithBN, "With BatchNorm")
 ```
 
-    No BatchNorm  Test Loss: 0.0354  Test Acc: 98.83%
-    With BatchNorm  Test Loss: 0.0380  Test Acc: 98.79%
+    No BatchNorm  Test Loss: 0.0393  Test Acc: 98.67%
+    With BatchNorm  Test Loss: 0.0374  Test Acc: 98.82%
 
 
 ## Data Augmentation
@@ -1753,9 +1758,9 @@ plot_probabilities(probs1, probs2, probs_mixed)
     
 
 
-    Mixup loss: 0.0116
-    Mixed prediction probs: [[9.9324316e-01 1.7496378e-08 2.9683897e-05 3.9989787e-05 2.5627789e-06
-      6.4805830e-03 6.2591785e-06 6.4459291e-06 1.8454289e-04 6.6030580e-06]]
+    Mixup loss: 1.3999
+    Mixed prediction probs: [[9.3193364e-01 1.3703265e-06 1.1240660e-03 1.8039638e-02 1.7499419e-06
+      4.7777403e-02 8.8190376e-05 9.0362632e-04 6.5385575e-05 6.4825152e-05]]
 
 
 
@@ -2055,6 +2060,9 @@ plt.show()
 
 ```
 
+    100.0%
+
+
     Using cuda
     Baseline epoch 1 finished
     Baseline epoch 2 finished
@@ -2145,323 +2153,6 @@ plt.show()
     Baseline epoch 87 finished
     Baseline epoch 88 finished
     Baseline epoch 89 finished
-    Baseline epoch 90 finished
-    Baseline epoch 91 finished
-    Baseline epoch 92 finished
-    Baseline epoch 93 finished
-    Baseline epoch 94 finished
-    Baseline epoch 95 finished
-    Baseline epoch 96 finished
-    Baseline epoch 97 finished
-    Baseline epoch 98 finished
-    Baseline epoch 99 finished
-    Baseline epoch 100 finished
-    Baseline epoch 101 finished
-    Baseline epoch 102 finished
-    Baseline epoch 103 finished
-    Baseline epoch 104 finished
-    Baseline epoch 105 finished
-    Baseline epoch 106 finished
-    Baseline epoch 107 finished
-    Baseline epoch 108 finished
-    Baseline epoch 109 finished
-    Baseline epoch 110 finished
-    Baseline epoch 111 finished
-    Baseline epoch 112 finished
-    Baseline epoch 113 finished
-    Baseline epoch 114 finished
-    Baseline epoch 115 finished
-    Baseline epoch 116 finished
-    Baseline epoch 117 finished
-    Baseline epoch 118 finished
-    Baseline epoch 119 finished
-    Baseline epoch 120 finished
-    Baseline epoch 121 finished
-    Baseline epoch 122 finished
-    Baseline epoch 123 finished
-    Baseline epoch 124 finished
-    Baseline epoch 125 finished
-    Baseline epoch 126 finished
-    Baseline epoch 127 finished
-    Baseline epoch 128 finished
-    Baseline epoch 129 finished
-    Baseline epoch 130 finished
-    Baseline epoch 131 finished
-    Baseline epoch 132 finished
-    Baseline epoch 133 finished
-    Baseline epoch 134 finished
-    Baseline epoch 135 finished
-    Baseline epoch 136 finished
-    Baseline epoch 137 finished
-    Baseline epoch 138 finished
-    Baseline epoch 139 finished
-    Baseline epoch 140 finished
-    Baseline epoch 141 finished
-    Baseline epoch 142 finished
-    Baseline epoch 143 finished
-    Baseline epoch 144 finished
-    Baseline epoch 145 finished
-    Baseline epoch 146 finished
-    Baseline epoch 147 finished
-    Baseline epoch 148 finished
-    Baseline epoch 149 finished
-    Baseline epoch 150 finished
-    Baseline epoch 151 finished
-    Baseline epoch 152 finished
-    Baseline epoch 153 finished
-    Baseline epoch 154 finished
-    Baseline epoch 155 finished
-    Baseline epoch 156 finished
-    Baseline epoch 157 finished
-    Baseline epoch 158 finished
-    Baseline epoch 159 finished
-    Baseline epoch 160 finished
-    Baseline epoch 161 finished
-    Baseline epoch 162 finished
-    Baseline epoch 163 finished
-    Baseline epoch 164 finished
-    Baseline epoch 165 finished
-    Baseline epoch 166 finished
-    Baseline epoch 167 finished
-    Baseline epoch 168 finished
-    Baseline epoch 169 finished
-    Baseline epoch 170 finished
-    Baseline epoch 171 finished
-    Baseline epoch 172 finished
-    Baseline epoch 173 finished
-    Baseline epoch 174 finished
-    Baseline epoch 175 finished
-    Baseline epoch 176 finished
-    Baseline epoch 177 finished
-    Baseline epoch 178 finished
-    Baseline epoch 179 finished
-    Baseline epoch 180 finished
-    Baseline epoch 181 finished
-    Baseline epoch 182 finished
-    Baseline epoch 183 finished
-    Baseline epoch 184 finished
-    Baseline epoch 185 finished
-    Baseline epoch 186 finished
-    Baseline epoch 187 finished
-    Baseline epoch 188 finished
-    Baseline epoch 189 finished
-    Baseline epoch 190 finished
-    Baseline epoch 191 finished
-    Baseline epoch 192 finished
-    Baseline epoch 193 finished
-    Baseline epoch 194 finished
-    Baseline epoch 195 finished
-    Baseline epoch 196 finished
-    Baseline epoch 197 finished
-    Baseline epoch 198 finished
-    Baseline epoch 199 finished
-    Baseline epoch 200 finished
-    CutMix epoch 1 finished
-    CutMix epoch 2 finished
-    CutMix epoch 3 finished
-    CutMix epoch 4 finished
-    CutMix epoch 5 finished
-    CutMix epoch 6 finished
-    CutMix epoch 7 finished
-    CutMix epoch 8 finished
-    CutMix epoch 9 finished
-    CutMix epoch 10 finished
-    CutMix epoch 11 finished
-    CutMix epoch 12 finished
-    CutMix epoch 13 finished
-    CutMix epoch 14 finished
-    CutMix epoch 15 finished
-    CutMix epoch 16 finished
-    CutMix epoch 17 finished
-    CutMix epoch 18 finished
-    CutMix epoch 19 finished
-    CutMix epoch 20 finished
-    CutMix epoch 21 finished
-    CutMix epoch 22 finished
-    CutMix epoch 23 finished
-    CutMix epoch 24 finished
-    CutMix epoch 25 finished
-    CutMix epoch 26 finished
-    CutMix epoch 27 finished
-    CutMix epoch 28 finished
-    CutMix epoch 29 finished
-    CutMix epoch 30 finished
-    CutMix epoch 31 finished
-    CutMix epoch 32 finished
-    CutMix epoch 33 finished
-    CutMix epoch 34 finished
-    CutMix epoch 35 finished
-    CutMix epoch 36 finished
-    CutMix epoch 37 finished
-    CutMix epoch 38 finished
-    CutMix epoch 39 finished
-    CutMix epoch 40 finished
-    CutMix epoch 41 finished
-    CutMix epoch 42 finished
-    CutMix epoch 43 finished
-    CutMix epoch 44 finished
-    CutMix epoch 45 finished
-    CutMix epoch 46 finished
-    CutMix epoch 47 finished
-    CutMix epoch 48 finished
-    CutMix epoch 49 finished
-    CutMix epoch 50 finished
-    CutMix epoch 51 finished
-    CutMix epoch 52 finished
-    CutMix epoch 53 finished
-    CutMix epoch 54 finished
-    CutMix epoch 55 finished
-    CutMix epoch 56 finished
-    CutMix epoch 57 finished
-    CutMix epoch 58 finished
-    CutMix epoch 59 finished
-    CutMix epoch 60 finished
-    CutMix epoch 61 finished
-    CutMix epoch 62 finished
-    CutMix epoch 63 finished
-    CutMix epoch 64 finished
-    CutMix epoch 65 finished
-    CutMix epoch 66 finished
-    CutMix epoch 67 finished
-    CutMix epoch 68 finished
-    CutMix epoch 69 finished
-    CutMix epoch 70 finished
-    CutMix epoch 71 finished
-    CutMix epoch 72 finished
-    CutMix epoch 73 finished
-    CutMix epoch 74 finished
-    CutMix epoch 75 finished
-    CutMix epoch 76 finished
-    CutMix epoch 77 finished
-    CutMix epoch 78 finished
-    CutMix epoch 79 finished
-    CutMix epoch 80 finished
-    CutMix epoch 81 finished
-    CutMix epoch 82 finished
-    CutMix epoch 83 finished
-    CutMix epoch 84 finished
-    CutMix epoch 85 finished
-    CutMix epoch 86 finished
-    CutMix epoch 87 finished
-    CutMix epoch 88 finished
-    CutMix epoch 89 finished
-    CutMix epoch 90 finished
-    CutMix epoch 91 finished
-    CutMix epoch 92 finished
-    CutMix epoch 93 finished
-    CutMix epoch 94 finished
-    CutMix epoch 95 finished
-    CutMix epoch 96 finished
-    CutMix epoch 97 finished
-    CutMix epoch 98 finished
-    CutMix epoch 99 finished
-    CutMix epoch 100 finished
-    CutMix epoch 101 finished
-    CutMix epoch 102 finished
-    CutMix epoch 103 finished
-    CutMix epoch 104 finished
-    CutMix epoch 105 finished
-    CutMix epoch 106 finished
-    CutMix epoch 107 finished
-    CutMix epoch 108 finished
-    CutMix epoch 109 finished
-    CutMix epoch 110 finished
-    CutMix epoch 111 finished
-    CutMix epoch 112 finished
-    CutMix epoch 113 finished
-    CutMix epoch 114 finished
-    CutMix epoch 115 finished
-    CutMix epoch 116 finished
-    CutMix epoch 117 finished
-    CutMix epoch 118 finished
-    CutMix epoch 119 finished
-    CutMix epoch 120 finished
-    CutMix epoch 121 finished
-    CutMix epoch 122 finished
-    CutMix epoch 123 finished
-    CutMix epoch 124 finished
-    CutMix epoch 125 finished
-    CutMix epoch 126 finished
-    CutMix epoch 127 finished
-    CutMix epoch 128 finished
-    CutMix epoch 129 finished
-    CutMix epoch 130 finished
-    CutMix epoch 131 finished
-    CutMix epoch 132 finished
-    CutMix epoch 133 finished
-    CutMix epoch 134 finished
-    CutMix epoch 135 finished
-    CutMix epoch 136 finished
-    CutMix epoch 137 finished
-    CutMix epoch 138 finished
-    CutMix epoch 139 finished
-    CutMix epoch 140 finished
-    CutMix epoch 141 finished
-    CutMix epoch 142 finished
-    CutMix epoch 143 finished
-    CutMix epoch 144 finished
-    CutMix epoch 145 finished
-    CutMix epoch 146 finished
-    CutMix epoch 147 finished
-    CutMix epoch 148 finished
-    CutMix epoch 149 finished
-    CutMix epoch 150 finished
-    CutMix epoch 151 finished
-    CutMix epoch 152 finished
-    CutMix epoch 153 finished
-    CutMix epoch 154 finished
-    CutMix epoch 155 finished
-    CutMix epoch 156 finished
-    CutMix epoch 157 finished
-    CutMix epoch 158 finished
-    CutMix epoch 159 finished
-    CutMix epoch 160 finished
-    CutMix epoch 161 finished
-    CutMix epoch 162 finished
-    CutMix epoch 163 finished
-    CutMix epoch 164 finished
-    CutMix epoch 165 finished
-    CutMix epoch 166 finished
-    CutMix epoch 167 finished
-    CutMix epoch 168 finished
-    CutMix epoch 169 finished
-    CutMix epoch 170 finished
-    CutMix epoch 171 finished
-    CutMix epoch 172 finished
-    CutMix epoch 173 finished
-    CutMix epoch 174 finished
-    CutMix epoch 175 finished
-    CutMix epoch 176 finished
-    CutMix epoch 177 finished
-    CutMix epoch 178 finished
-    CutMix epoch 179 finished
-    CutMix epoch 180 finished
-    CutMix epoch 181 finished
-    CutMix epoch 182 finished
-    CutMix epoch 183 finished
-    CutMix epoch 184 finished
-    CutMix epoch 185 finished
-    CutMix epoch 186 finished
-    CutMix epoch 187 finished
-    CutMix epoch 188 finished
-    CutMix epoch 189 finished
-    CutMix epoch 190 finished
-    CutMix epoch 191 finished
-    CutMix epoch 192 finished
-    CutMix epoch 193 finished
-    CutMix epoch 194 finished
-    CutMix epoch 195 finished
-    CutMix epoch 196 finished
-    CutMix epoch 197 finished
-    CutMix epoch 198 finished
-    CutMix epoch 199 finished
-    CutMix epoch 200 finished
-
-
-
-    
-![png](/notebooks/lesson-5-1-cnns/lesson_5-1_CNNs_26_1.png)
-    
 
 
 Running the code above took me about 270 minutes on a 4060 laptop GPU.
@@ -2737,6 +2428,9 @@ plt.show()
 
 ```
 
+    100.0%
+
+
     50000
     Epoch 1
     Epoch 2
@@ -2938,8 +2632,8 @@ plt.show()
     Epoch 198
     Epoch 199
     Epoch 200
-    Time taken: 510.99227643013ns
-    No Global Pooling  Test Loss: 2.5271  Test Acc: 73.05%
+    Time taken: 144.72556805610657ns
+    No Global Pooling  Test Loss: 2.5618  Test Acc: 73.62%
     Epoch 1
     Epoch 2
     Epoch 3
@@ -3140,13 +2834,13 @@ plt.show()
     Epoch 198
     Epoch 199
     Epoch 200
-    Time taken: 475.12654423713684ns
-    With Global Pooling  Test Loss: 1.0696  Test Acc: 63.56%
+    Time taken: 144.9526982307434ns
+    With Global Pooling  Test Loss: 0.9922  Test Acc: 66.21%
 
 
 
     
-![png](/notebooks/lesson-5-1-cnns/lesson_5-1_CNNs_33_1.png)
+![png](/notebooks/lesson-5-1-cnns/lesson_5-1_CNNs_33_2.png)
     
 
 

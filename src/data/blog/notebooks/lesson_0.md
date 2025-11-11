@@ -2,7 +2,7 @@
 title: Lesson 0
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2025-11-11T03:47:39Z
+pubDatetime: 2025-11-11T03:54:04Z
 modDatetime:
 draft: true
 tags:
@@ -109,42 +109,115 @@ install_tensorflow()
     matplotlib is already installed.
     sklearn is already installed.
     GPU detected, installing TensorFlow with GPU support...
-    Requirement already satisfied: tensorflow in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (2.18.0)
-    Requirement already satisfied: absl-py>=1.0.0 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (2.1.0)
-    Requirement already satisfied: astunparse>=1.6.0 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (1.6.3)
-    Requirement already satisfied: flatbuffers>=24.3.25 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (24.3.25)
-    Requirement already satisfied: gast!=0.5.0,!=0.5.1,!=0.5.2,>=0.2.1 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (0.5.3)
-    Requirement already satisfied: google-pasta>=0.1.1 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (0.2.0)
-    Requirement already satisfied: opt-einsum>=2.3.2 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (3.3.0)
-    Requirement already satisfied: packaging in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (24.2)
-    Requirement already satisfied: protobuf!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5,<6.0.0dev,>=3.20.3 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (5.28.3)
-    Requirement already satisfied: requests<3,>=2.21.0 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (2.32.3)
-    Requirement already satisfied: setuptools in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (75.8.0)
-    Requirement already satisfied: six>=1.12.0 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (1.16.0)
-    Requirement already satisfied: termcolor>=1.1.0 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (2.1.0)
-    Requirement already satisfied: typing-extensions>=3.6.6 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (4.12.2)
-    Requirement already satisfied: wrapt>=1.11.0 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (1.17.0)
-    Requirement already satisfied: grpcio<2.0,>=1.24.3 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (1.67.1)
-    Requirement already satisfied: tensorboard<2.19,>=2.18 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (2.18.0)
-    Requirement already satisfied: keras>=3.5.0 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (3.6.0)
-    Requirement already satisfied: h5py>=3.11.0 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (3.13.0)
-    Requirement already satisfied: ml-dtypes<0.5.0,>=0.4.0 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (0.4.0)
-    Requirement already satisfied: wheel<1.0,>=0.23.0 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from astunparse>=1.6.0->tensorflow) (0.45.1)
-    Requirement already satisfied: numpy>=1.19.3 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from h5py>=3.11.0->tensorflow) (1.26.4)
-    Requirement already satisfied: rich in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from keras>=3.5.0->tensorflow) (13.9.4)
-    Requirement already satisfied: namex in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from keras>=3.5.0->tensorflow) (0.0.7)
-    Requirement already satisfied: optree in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from keras>=3.5.0->tensorflow) (0.12.1)
-    Requirement already satisfied: charset-normalizer<4,>=2 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from requests<3,>=2.21.0->tensorflow) (3.3.2)
-    Requirement already satisfied: idna<4,>=2.5 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from requests<3,>=2.21.0->tensorflow) (3.7)
-    Requirement already satisfied: urllib3<3,>=1.21.1 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from requests<3,>=2.21.0->tensorflow) (2.3.0)
-    Requirement already satisfied: certifi>=2017.4.17 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from requests<3,>=2.21.0->tensorflow) (2025.1.31)
-    Requirement already satisfied: markdown>=2.6.8 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorboard<2.19,>=2.18->tensorflow) (3.4.1)
-    Requirement already satisfied: tensorboard-data-server<0.8.0,>=0.7.0 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorboard<2.19,>=2.18->tensorflow) (0.7.0)
-    Requirement already satisfied: werkzeug>=1.0.1 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from tensorboard<2.19,>=2.18->tensorflow) (3.1.3)
-    Requirement already satisfied: MarkupSafe>=2.1.1 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from werkzeug>=1.0.1->tensorboard<2.19,>=2.18->tensorflow) (3.0.2)
-    Requirement already satisfied: markdown-it-py>=2.2.0 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from rich->keras>=3.5.0->tensorflow) (2.2.0)
-    Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from rich->keras>=3.5.0->tensorflow) (2.15.1)
-    Requirement already satisfied: mdurl~=0.1 in /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages (from markdown-it-py>=2.2.0->rich->keras>=3.5.0->tensorflow) (0.1.0)
+    Collecting tensorflow
+      Downloading tensorflow-2.20.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.5 kB)
+    Collecting absl-py>=1.0.0 (from tensorflow)
+      Downloading absl_py-2.3.1-py3-none-any.whl.metadata (3.3 kB)
+    Collecting astunparse>=1.6.0 (from tensorflow)
+      Downloading astunparse-1.6.3-py2.py3-none-any.whl.metadata (4.4 kB)
+    Collecting flatbuffers>=24.3.25 (from tensorflow)
+      Downloading flatbuffers-25.2.10-py2.py3-none-any.whl.metadata (875 bytes)
+    Collecting gast!=0.5.0,!=0.5.1,!=0.5.2,>=0.2.1 (from tensorflow)
+      Downloading gast-0.6.0-py3-none-any.whl.metadata (1.3 kB)
+    Collecting google_pasta>=0.1.1 (from tensorflow)
+      Downloading google_pasta-0.2.0-py3-none-any.whl.metadata (814 bytes)
+    Collecting libclang>=13.0.0 (from tensorflow)
+      Downloading libclang-18.1.1-py2.py3-none-manylinux2010_x86_64.whl.metadata (5.2 kB)
+    Collecting opt_einsum>=2.3.2 (from tensorflow)
+      Downloading opt_einsum-3.4.0-py3-none-any.whl.metadata (6.3 kB)
+    Requirement already satisfied: packaging in /opt/miniforge/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (25.0)
+    Collecting protobuf>=5.28.0 (from tensorflow)
+      Downloading protobuf-6.32.0-cp39-abi3-manylinux2014_x86_64.whl.metadata (593 bytes)
+    Collecting requests<3,>=2.21.0 (from tensorflow)
+      Using cached requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+    Requirement already satisfied: setuptools in /opt/miniforge/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (80.9.0)
+    Requirement already satisfied: six>=1.12.0 in /opt/miniforge/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (1.17.0)
+    Collecting termcolor>=1.1.0 (from tensorflow)
+      Downloading termcolor-3.1.0-py3-none-any.whl.metadata (6.4 kB)
+    Requirement already satisfied: typing_extensions>=3.6.6 in /opt/miniforge/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (4.15.0)
+    Collecting wrapt>=1.11.0 (from tensorflow)
+      Downloading wrapt-1.17.3-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.4 kB)
+    Collecting grpcio<2.0,>=1.24.3 (from tensorflow)
+      Downloading grpcio-1.74.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.8 kB)
+    Collecting tensorboard~=2.20.0 (from tensorflow)
+      Downloading tensorboard-2.20.0-py3-none-any.whl.metadata (1.8 kB)
+    Collecting keras>=3.10.0 (from tensorflow)
+      Downloading keras-3.11.3-py3-none-any.whl.metadata (5.9 kB)
+    Requirement already satisfied: numpy>=1.26.0 in /opt/miniforge/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (2.3.3)
+    Collecting h5py>=3.11.0 (from tensorflow)
+      Downloading h5py-3.14.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.7 kB)
+    Collecting ml_dtypes<1.0.0,>=0.5.1 (from tensorflow)
+      Downloading ml_dtypes-0.5.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.9 kB)
+    Collecting charset_normalizer<4,>=2 (from requests<3,>=2.21.0->tensorflow)
+      Downloading charset_normalizer-3.4.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (36 kB)
+    Collecting idna<4,>=2.5 (from requests<3,>=2.21.0->tensorflow)
+      Using cached idna-3.10-py3-none-any.whl.metadata (10 kB)
+    Collecting urllib3<3,>=1.21.1 (from requests<3,>=2.21.0->tensorflow)
+      Using cached urllib3-2.5.0-py3-none-any.whl.metadata (6.5 kB)
+    Collecting certifi>=2017.4.17 (from requests<3,>=2.21.0->tensorflow)
+      Using cached certifi-2025.8.3-py3-none-any.whl.metadata (2.4 kB)
+    Collecting markdown>=2.6.8 (from tensorboard~=2.20.0->tensorflow)
+      Downloading markdown-3.9-py3-none-any.whl.metadata (5.1 kB)
+    Requirement already satisfied: pillow in /opt/miniforge/envs/mlshit/lib/python3.12/site-packages (from tensorboard~=2.20.0->tensorflow) (11.3.0)
+    Collecting tensorboard-data-server<0.8.0,>=0.7.0 (from tensorboard~=2.20.0->tensorflow)
+      Downloading tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl.metadata (1.1 kB)
+    Collecting werkzeug>=1.0.1 (from tensorboard~=2.20.0->tensorflow)
+      Downloading werkzeug-3.1.3-py3-none-any.whl.metadata (3.7 kB)
+    Requirement already satisfied: wheel<1.0,>=0.23.0 in /opt/miniforge/envs/mlshit/lib/python3.12/site-packages (from astunparse>=1.6.0->tensorflow) (0.45.1)
+    Collecting rich (from keras>=3.10.0->tensorflow)
+      Downloading rich-14.1.0-py3-none-any.whl.metadata (18 kB)
+    Collecting namex (from keras>=3.10.0->tensorflow)
+      Downloading namex-0.1.0-py3-none-any.whl.metadata (322 bytes)
+    Collecting optree (from keras>=3.10.0->tensorflow)
+      Downloading optree-0.17.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (33 kB)
+    Collecting MarkupSafe>=2.1.1 (from werkzeug>=1.0.1->tensorboard~=2.20.0->tensorflow)
+      Downloading MarkupSafe-3.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+    Collecting markdown-it-py>=2.2.0 (from rich->keras>=3.10.0->tensorflow)
+      Downloading markdown_it_py-4.0.0-py3-none-any.whl.metadata (7.3 kB)
+    Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /opt/miniforge/envs/mlshit/lib/python3.12/site-packages (from rich->keras>=3.10.0->tensorflow) (2.19.2)
+    Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich->keras>=3.10.0->tensorflow)
+      Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+    Downloading tensorflow-2.20.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (620.7 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m620.7/620.7 MB[0m [31m36.4 MB/s[0m  [33m0:00:17[0mm0:00:01[0m00:01[0m
+    [?25hDownloading grpcio-1.74.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (6.2 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m6.2/6.2 MB[0m [31m28.4 MB/s[0m  [33m0:00:00[0m eta [36m0:00:01[0m
+    [?25hDownloading ml_dtypes-0.5.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (4.9 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m4.9/4.9 MB[0m [31m41.4 MB/s[0m  [33m0:00:00[0m
+    [?25hUsing cached requests-2.32.5-py3-none-any.whl (64 kB)
+    Downloading charset_normalizer-3.4.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (151 kB)
+    Using cached idna-3.10-py3-none-any.whl (70 kB)
+    Downloading tensorboard-2.20.0-py3-none-any.whl (5.5 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m5.5/5.5 MB[0m [31m37.2 MB/s[0m  [33m0:00:00[0m
+    [?25hDownloading tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl (6.6 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m6.6/6.6 MB[0m [31m36.6 MB/s[0m  [33m0:00:00[0m
+    [?25hUsing cached urllib3-2.5.0-py3-none-any.whl (129 kB)
+    Downloading absl_py-2.3.1-py3-none-any.whl (135 kB)
+    Downloading astunparse-1.6.3-py2.py3-none-any.whl (12 kB)
+    Using cached certifi-2025.8.3-py3-none-any.whl (161 kB)
+    Downloading flatbuffers-25.2.10-py2.py3-none-any.whl (30 kB)
+    Downloading gast-0.6.0-py3-none-any.whl (21 kB)
+    Downloading google_pasta-0.2.0-py3-none-any.whl (57 kB)
+    Downloading h5py-3.14.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.9 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m4.9/4.9 MB[0m [31m41.3 MB/s[0m  [33m0:00:00[0m
+    [?25hDownloading keras-3.11.3-py3-none-any.whl (1.4 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.4/1.4 MB[0m [31m36.4 MB/s[0m  [33m0:00:00[0m
+    [?25hDownloading libclang-18.1.1-py2.py3-none-manylinux2010_x86_64.whl (24.5 MB)
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m24.5/24.5 MB[0m [31m38.6 MB/s[0m  [33m0:00:00[0mm0:00:01[0m00:01[0m
+    [?25hDownloading markdown-3.9-py3-none-any.whl (107 kB)
+    Downloading opt_einsum-3.4.0-py3-none-any.whl (71 kB)
+    Downloading protobuf-6.32.0-cp39-abi3-manylinux2014_x86_64.whl (322 kB)
+    Downloading termcolor-3.1.0-py3-none-any.whl (7.7 kB)
+    Downloading werkzeug-3.1.3-py3-none-any.whl (224 kB)
+    Downloading MarkupSafe-3.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (23 kB)
+    Downloading wrapt-1.17.3-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (88 kB)
+    Downloading namex-0.1.0-py3-none-any.whl (5.9 kB)
+    Downloading optree-0.17.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (408 kB)
+    Downloading rich-14.1.0-py3-none-any.whl (243 kB)
+    Downloading markdown_it_py-4.0.0-py3-none-any.whl (87 kB)
+    Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+    Installing collected packages: namex, libclang, flatbuffers, wrapt, urllib3, termcolor, tensorboard-data-server, protobuf, optree, opt_einsum, ml_dtypes, mdurl, MarkupSafe, markdown, idna, h5py, grpcio, google_pasta, gast, charset_normalizer, certifi, astunparse, absl-py, werkzeug, requests, markdown-it-py, tensorboard, rich, keras, tensorflow
+    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m30/30[0m [tensorflow]0[0m [tensorflow]]data-server]
+    [1A[2KSuccessfully installed MarkupSafe-3.0.2 absl-py-2.3.1 astunparse-1.6.3 certifi-2025.8.3 charset_normalizer-3.4.3 flatbuffers-25.2.10 gast-0.6.0 google_pasta-0.2.0 grpcio-1.74.0 h5py-3.14.0 idna-3.10 keras-3.11.3 libclang-18.1.1 markdown-3.9 markdown-it-py-4.0.0 mdurl-0.1.2 ml_dtypes-0.5.3 namex-0.1.0 opt_einsum-3.4.0 optree-0.17.0 protobuf-6.32.0 requests-2.32.5 rich-14.1.0 tensorboard-2.20.0 tensorboard-data-server-0.7.2 tensorflow-2.20.0 termcolor-3.1.0 urllib3-2.5.0 werkzeug-3.1.3 wrapt-1.17.3
     tensorflow has been installed.
 
 
@@ -226,7 +299,7 @@ if __name__ == '__main__':
     
 
 
-    Percentage Correct for single test of size 10: 0.501
+    Percentage Correct for single test of size 10: 0.497
 
 
 After running the code above, our intuition is validated, the most common outcome is indeed 50% correct!
@@ -480,11 +553,11 @@ if __name__ == '__main__':
     main()
 ```
 
-    Weights: [ 0.59788604  0.59088232 -0.18071449  0.21099006  0.65972048 -0.21474088
-      0.591782    0.97050806  0.81359229 -0.1314887  -0.38620124]
-    Inputs: [0.46017845 0.30661591 0.51656821 0.10892371 0.14412319 0.13529178
-     0.31837113 0.41162137 0.20790602 0.56250789 1.        ]
-    Output: 0.7488412188573592
+    Weights: [ 0.96908822  0.74575859 -0.30510925 -0.65469114  0.9650668   0.09007921
+      0.75662496  0.02608767 -0.18699022 -0.68763486 -0.51060039]
+    Inputs: [0.88986144 0.502204   0.79424275 0.71266943 0.95645457 0.60612577
+     0.023432   0.82859815 0.85712565 0.35802718 1.        ]
+    Output: 0.6278888620228085
 
 
 ## The Mathematical Foundations of Deep Learning: Calculus
@@ -1297,106 +1370,106 @@ plt.show()
     
 
 
-    Iteration 10: Error = 0.5877412088627537
-    Iteration 20: Error = 0.27380187626218455
-    Iteration 30: Error = 0.25207403618543345
-    Iteration 40: Error = 0.23670266869264533
-    Iteration 50: Error = 0.2250196403257352
-    Iteration 60: Error = 0.2161353270506921
-    Iteration 70: Error = 0.20937926124624467
-    Iteration 80: Error = 0.20424161865133114
-    Iteration 90: Error = 0.20033470415379143
-    Iteration 100: Error = 0.19736369544520246
-    Iteration 110: Error = 0.19510439523475004
-    Iteration 120: Error = 0.19338631294633604
-    Iteration 130: Error = 0.19207979921429386
-    Iteration 140: Error = 0.19108626232521356
-    Iteration 150: Error = 0.1903307283221991
-    Iteration 160: Error = 0.189756183344569
-    Iteration 170: Error = 0.18931927126648546
-    Iteration 180: Error = 0.18898702197111664
-    Iteration 190: Error = 0.18873436337042684
-    Iteration 200: Error = 0.18854222942344084
-    Iteration 210: Error = 0.1883961213808741
-    Iteration 220: Error = 0.18828501368524006
-    Iteration 230: Error = 0.18820052196382467
-    Iteration 240: Error = 0.18813627032988525
-    Iteration 250: Error = 0.1880874102475631
-    Iteration 260: Error = 0.18805025465325137
-    Iteration 270: Error = 0.1880219997236022
-    Iteration 280: Error = 0.18800051329432385
-    Iteration 290: Error = 0.18798417396349318
-    Iteration 300: Error = 0.18797174873785263
-    Iteration 310: Error = 0.18796229998907454
-    Iteration 320: Error = 0.1879551146987585
-    Iteration 330: Error = 0.18794965065286856
-    Iteration 340: Error = 0.18794549552535464
-    Iteration 350: Error = 0.18794233576333866
-    Iteration 360: Error = 0.18793993292588915
-    Iteration 370: Error = 0.18793810569086974
-    Iteration 380: Error = 0.18793671617206695
-    Iteration 390: Error = 0.18793565951406574
-    Iteration 400: Error = 0.1879348559796844
-    Iteration 410: Error = 0.18793424493287336
-    Iteration 420: Error = 0.1879337802630175
-    Iteration 430: Error = 0.1879334269053513
-    Iteration 440: Error = 0.18793315819491396
-    Iteration 450: Error = 0.18793295385436593
-    Iteration 460: Error = 0.1879327984638275
-    Iteration 470: Error = 0.18793268029726817
-    Iteration 480: Error = 0.18793259043764204
-    Iteration 490: Error = 0.18793252210399103
-    Iteration 500: Error = 0.1879324701397433
-    Iteration 510: Error = 0.18793243062359008
-    Iteration 520: Error = 0.18793240057357596
-    Iteration 530: Error = 0.18793237772207694
-    Iteration 540: Error = 0.18793236034468017
-    Iteration 550: Error = 0.1879323471300584
-    Iteration 560: Error = 0.18793233708101448
-    Iteration 570: Error = 0.1879323294392302
-    Iteration 580: Error = 0.18793232362804402
-    Iteration 590: Error = 0.18793231920893408
-    Iteration 600: Error = 0.18793231584842704
-    Iteration 610: Error = 0.18793231329293306
-    Iteration 620: Error = 0.1879323113496108
-    Iteration 630: Error = 0.1879323098718134
-    Iteration 640: Error = 0.18793230874802413
-    Iteration 650: Error = 0.18793230789343976
-    Iteration 660: Error = 0.18793230724357207
-    Iteration 670: Error = 0.18793230674938097
-    Iteration 680: Error = 0.18793230637357383
-    Iteration 690: Error = 0.18793230608779177
-    Iteration 700: Error = 0.18793230587046922
-    Iteration 710: Error = 0.18793230570520636
-    Iteration 720: Error = 0.18793230557953247
-    Iteration 730: Error = 0.18793230548396386
-    Iteration 740: Error = 0.18793230541128886
-    Iteration 750: Error = 0.1879323053560233
-    Iteration 760: Error = 0.18793230531399657
-    Iteration 770: Error = 0.18793230528203753
-    Iteration 780: Error = 0.1879323052577341
-    Iteration 790: Error = 0.18793230523925278
-    Iteration 800: Error = 0.18793230522519863
-    Iteration 810: Error = 0.18793230521451104
-    Iteration 820: Error = 0.18793230520638388
-    Iteration 830: Error = 0.18793230520020343
-    Iteration 840: Error = 0.18793230519550352
-    Iteration 850: Error = 0.18793230519192963
-    Iteration 860: Error = 0.18793230518921158
-    Iteration 870: Error = 0.1879323051871449
-    Iteration 880: Error = 0.18793230518557316
-    Iteration 890: Error = 0.18793230518437806
-    Iteration 900: Error = 0.18793230518346918
-    Iteration 910: Error = 0.18793230518277806
-    Iteration 920: Error = 0.1879323051822525
-    Iteration 930: Error = 0.18793230518185283
-    Iteration 940: Error = 0.18793230518154883
-    Iteration 950: Error = 0.1879323051813177
-    Iteration 960: Error = 0.1879323051811419
-    Iteration 970: Error = 0.18793230518100834
-    Iteration 980: Error = 0.1879323051809067
-    Iteration 990: Error = 0.18793230518082946
-    Iteration 1000: Error = 0.1879323051807706
+    Iteration 10: Error = 0.6519519240462696
+    Iteration 20: Error = 0.2820787858627606
+    Iteration 30: Error = 0.26957647041072513
+    Iteration 40: Error = 0.26280395097316017
+    Iteration 50: Error = 0.25789882431419836
+    Iteration 60: Error = 0.2543311694923636
+    Iteration 70: Error = 0.2517361640070828
+    Iteration 80: Error = 0.24984863334268834
+    Iteration 90: Error = 0.24847569904322436
+    Iteration 100: Error = 0.24747706700699212
+    Iteration 110: Error = 0.24675069143011238
+    Iteration 120: Error = 0.24622234719565558
+    Iteration 130: Error = 0.24583804513626795
+    Iteration 140: Error = 0.24555851511924906
+    Iteration 150: Error = 0.2453551932048696
+    Iteration 160: Error = 0.24520730282333658
+    Iteration 170: Error = 0.24509973170874833
+    Iteration 180: Error = 0.24502148764328718
+    Iteration 190: Error = 0.24496457521095485
+    Iteration 200: Error = 0.2449231787812721
+    Iteration 210: Error = 0.24489306823564505
+    Iteration 220: Error = 0.24487116671020182
+    Iteration 230: Error = 0.24485523618464167
+    Iteration 240: Error = 0.24484364878881024
+    Iteration 250: Error = 0.24483522045782724
+    Iteration 260: Error = 0.244829089937718
+    Iteration 270: Error = 0.24482463077766767
+    Iteration 280: Error = 0.24482138731577538
+    Iteration 290: Error = 0.2448190281169738
+    Iteration 300: Error = 0.24481731210514127
+    Iteration 310: Error = 0.24481606392859617
+    Iteration 320: Error = 0.24481515604168178
+    Iteration 330: Error = 0.2448144956714381
+    Iteration 340: Error = 0.2448140153375419
+    Iteration 350: Error = 0.244813665956791
+    Iteration 360: Error = 0.24481341182750666
+    Iteration 370: Error = 0.24481322698133826
+    Iteration 380: Error = 0.24481309252967112
+    Iteration 390: Error = 0.24481299473348217
+    Iteration 400: Error = 0.2448129235994102
+    Iteration 410: Error = 0.24481287185857803
+    Iteration 420: Error = 0.24481283422381833
+    Iteration 430: Error = 0.24481280684940074
+    Iteration 440: Error = 0.24481278693805436
+    Iteration 450: Error = 0.24481277245512645
+    Iteration 460: Error = 0.2448127619206707
+    Iteration 470: Error = 0.24481275425821733
+    Iteration 480: Error = 0.2448127486847741
+    Iteration 490: Error = 0.2448127446308154
+    Iteration 500: Error = 0.24481274168208508
+    Iteration 510: Error = 0.24481273953726526
+    Iteration 520: Error = 0.24481273797718647
+    Iteration 530: Error = 0.24481273684243085
+    Iteration 540: Error = 0.24481273601704318
+    Iteration 550: Error = 0.24481273541668053
+    Iteration 560: Error = 0.24481273497999428
+    Iteration 570: Error = 0.24481273466236142
+    Iteration 580: Error = 0.2448127344313247
+    Iteration 590: Error = 0.24481273426327546
+    Iteration 600: Error = 0.24481273414104138
+    Iteration 610: Error = 0.24481273405213194
+    Iteration 620: Error = 0.24481273398746164
+    Iteration 630: Error = 0.24481273394042247
+    Iteration 640: Error = 0.24481273390620756
+    Iteration 650: Error = 0.24481273388132072
+    Iteration 660: Error = 0.24481273386321878
+    Iteration 670: Error = 0.2448127338500518
+    Iteration 680: Error = 0.2448127338404746
+    Iteration 690: Error = 0.24481273383350838
+    Iteration 700: Error = 0.24481273382844143
+    Iteration 710: Error = 0.24481273382475588
+    Iteration 720: Error = 0.24481273382207516
+    Iteration 730: Error = 0.24481273382012514
+    Iteration 740: Error = 0.24481273381870688
+    Iteration 750: Error = 0.24481273381767527
+    Iteration 760: Error = 0.2448127338169249
+    Iteration 770: Error = 0.24481273381637908
+    Iteration 780: Error = 0.24481273381598204
+    Iteration 790: Error = 0.24481273381569327
+    Iteration 800: Error = 0.24481273381548316
+    Iteration 810: Error = 0.24481273381533042
+    Iteration 820: Error = 0.24481273381521926
+    Iteration 830: Error = 0.24481273381513843
+    Iteration 840: Error = 0.24481273381507973
+    Iteration 850: Error = 0.2448127338150369
+    Iteration 860: Error = 0.2448127338150057
+    Iteration 870: Error = 0.24481273381498314
+    Iteration 880: Error = 0.2448127338149667
+    Iteration 890: Error = 0.2448127338149547
+    Iteration 900: Error = 0.24481273381494606
+    Iteration 910: Error = 0.2448127338149396
+    Iteration 920: Error = 0.24481273381493515
+    Iteration 930: Error = 0.2448127338149317
+    Iteration 940: Error = 0.2448127338149293
+    Iteration 950: Error = 0.24481273381492752
+    Iteration 960: Error = 0.24481273381492627
+    Iteration 970: Error = 0.24481273381492533
+    Iteration 980: Error = 0.24481273381492452
+    Iteration 990: Error = 0.24481273381492424
+    Iteration 1000: Error = 0.2448127338149238
 
 
 
@@ -1461,7 +1534,7 @@ if __name__ == '__main__':
     main()
 ```
 
-    Time taken to perform matrix multiplication using numpy: 0.002031087875366211 seconds
-    Time taken to perform matrix multiplication using for loops: 42.52544403076172 seconds
+    Time taken to perform matrix multiplication using numpy: 0.004975557327270508 seconds
+    Time taken to perform matrix multiplication using for loops: 27.597330570220947 seconds
     The results are the same!
 

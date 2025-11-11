@@ -2,7 +2,7 @@
 title: Lesson 1
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2025-11-11T03:47:28Z
+pubDatetime: 2025-11-11T03:53:53Z
 modDatetime:
 draft: true
 tags:
@@ -70,7 +70,19 @@ install_tensorflow()
     pandas is already installed.
     matplotlib is already installed.
     sklearn is already installed.
+
+
+    2025-09-11 09:37:53.255698: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+    2025-09-11 09:37:53.255914: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+    2025-09-11 09:37:53.283393: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+    To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+
+
     tensorflow is already installed.
+
+
+    2025-09-11 09:37:53.985464: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+    2025-09-11 09:37:53.985738: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
 
 
 We covered *a lot* of stuff in the previous lesson, but moving forward we will assume that you are familiar with these concepts and at the very least remember what stays common across all machine learning models (including deep learning).
@@ -299,7 +311,7 @@ plt.show()
 
     Degree 1 - Train Error: 0.75, Test Error: 0.86
     Degree 4 - Train Error: 0.22, Test Error: 0.34
-    Degree 100 - Train Error: 0.73, Test Error: 0.99
+    Degree 100 - Train Error: 0.74, Test Error: 0.87
 
 
 
@@ -939,13 +951,13 @@ plt.title('Comparison of various models and their L1 and L2 counterparts')
 plt.show()
 ```
 
-    /home/kelpfries/miniconda3/envs/mlshit/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:695: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 7.309e+00, tolerance: 5.291e-03
-      model = cd_fast.enet_coordinate_descent(
-
-
     Errors for regular model, train error: 0.26, test error: 0.52
     Errors for L1 model, train error: 0.21, test error: 0.33
-    Errors for L2 model, train error: 2.80, test error: 2.70
+    Errors for L2 model, train error: 1.85, test error: 0.96
+
+
+    /opt/miniforge/envs/mlshit/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:695: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 7.309e+00, tolerance: 5.291e-03
+      model = cd_fast.enet_coordinate_descent(
 
 
 
