@@ -18,13 +18,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Checkout notebook repository
-        uses: actions/checkout@v4
-        with:
-          repository: KelpFriesOG/ML-Insights
-          path: external-notebooks
-          ref: main
-          token: ${{ secrets.NOTEBOOK_REPO_TOKEN }}
+      - name: Fetch notebook repository
+        run: |
+          git clone --depth 1 https://github.com/KelpFriesOG/ML-Insights.git external-notebooks
 
       - name: Setup Python
         uses: actions/setup-python@v5
