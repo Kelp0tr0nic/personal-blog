@@ -24,8 +24,13 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
   <Header />
   <main id="main-content" data-layout="index">
     <section id="hero" class="pt-8 pb-6">
-      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Hey, I’m Kalpesh 👋
+      <h1
+        class="hero-typing my-4 inline-flex text-4xl font-bold sm:my-8 sm:text-5xl"
+        data-text="Hey, I’m Kalpesh 👋"
+        aria-label="Hey, I’m Kalpesh"
+      >
+        <span id="hero-text"></span>
+        <span class="hero-cursor" aria-hidden="true">▋</span>
       </h1>
       <a
         target="_blank"
@@ -128,4 +133,64 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       sessionStorage.setItem("backUrl", "/");
     }
   });
+
+  const typingEl = document.querySelector<HTMLSpanElement>("#hero-text");
+  const cursorEl = document.querySelector<HTMLSpanElement>(".hero-cursor");
+  const container = document.querySelector<HTMLElement>(".hero-typing");
+
+  if (typingEl && cursorEl && container) {
+    const fullText = container.dataset.text ?? "";
+    let idx = 0;
+
+    const tick = () => {
+      if (idx <= fullText.length) {
+        typingEl.textContent = fullText.slice(0, idx);
+        idx += 1;
+      } else {
+        clearInterval(interval);
+        cursorEl.classList.add("hero-cursor--idle");
+      }
+    };
+
+    const interval = window.setInterval(tick, 90);
+  }
 </script>
+
+<style is:global>
+  .hero-typing {
+    position: relative;
+    white-space: nowrap;
+  }
+
+  .hero-cursor {
+    margin-left: 0.1em;
+    animation: blink 1s steps(1) infinite;
+    color: var(--color-accent);
+  }
+
+  .hero-cursor--idle {
+    animation: blink-slow 1.5s steps(1) infinite;
+  }
+
+  @keyframes blink {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    50.01%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes blink-slow {
+    0%,
+    70% {
+      opacity: 1;
+    }
+    70.01%,
+    100% {
+      opacity: 0;
+    }
+  }
+</style>
