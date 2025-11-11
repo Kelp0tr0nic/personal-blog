@@ -295,7 +295,7 @@ if __name__ == '__main__':
 
 
     
-![png](/notebooks/media/lesson_0_3_0.png)
+![png](/notebooks/lesson_0_3_0.png)
     
 
 

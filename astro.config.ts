@@ -10,6 +10,10 @@ import {
   transformerNotationHighlight,
   transformerNotationWordHighlight,
 } from "@shikijs/transformers";
+import catppuccinFrappe from "@shikijs/themes/catppuccin-frappe";
+import catppuccinMocha from "@shikijs/themes/catppuccin-mocha";
+import gruvboxDarkMedium from "@shikijs/themes/gruvbox-dark-medium";
+import gruvboxLightMedium from "@shikijs/themes/gruvbox-light-medium";
 import { transformerFileName } from "./src/utils/transformers/fileName";
 import { SITE } from "./src/config";
 import react from "@astrojs/react";
@@ -28,7 +32,14 @@ export default defineConfig({
     rehypePlugins: [rehypeKatex],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
-      themes: { light: "min-light", dark: "night-owl" },
+      themes: {
+        light: "min-light",
+        dark: "night-owl",
+        "catppuccin-light": catppuccinFrappe,
+        "catppuccin-dark": catppuccinMocha,
+        "gruvbox-light": gruvboxLightMedium,
+        "gruvbox-dark": gruvboxDarkMedium,
+      },
       defaultColor: false,
       wrap: false,
       transformers: [
