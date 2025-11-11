@@ -83,7 +83,7 @@ While the Relu function isn't "smooth" nor is it limited at an output range of $
 
 Note that the actual model will kind of resemble a step function because it will only have two possible outputs (either 0 or 1) but the sigmoid function will output a value between 0 and 1.
 
-<img src="./media/sigmoid_mapping.png" alt="drawing" width="400">
+<img src="/notebooks/media/sigmoid_mapping.png" alt="drawing" width="400">
 
 In the image above the green datapoints are the actual outputs of the data and the predictions made by the sigmoid function will not ever be exactly 0 or 1!
 

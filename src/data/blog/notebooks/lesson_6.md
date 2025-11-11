@@ -72,13 +72,13 @@ The decoder architecture needs to accept this linear output and then needs to ap
 
 Here is an image that shows how the dot product operation is used to multiply each singular input pixel by the learned kernel:
 
-<img src="./media/transposed_convolution_in_action.png" width=800px>
+<img src="/notebooks/media/transposed_convolution_in_action.png" width=800px>
 
 So note how the kernel here in that example has no overlapping regions when applied, and effectively double the size of the input dimensions (from 2 by 2 to 4 by 4). **This occurs because the kernel is applied with a stride of 2, which is the width and height of the kernel.**
 
 - We could alternatively upsample by choosing a stride of one and apply a 3 by 3 kernel to get the same result (a 4 by 4 image)
 
-<img src="./media/transposed_convolution_in_action_2.png" width=800px>
+<img src="/notebooks/media/transposed_convolution_in_action_2.png" width=800px>
 
 ---
 

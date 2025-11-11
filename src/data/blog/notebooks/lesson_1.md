@@ -449,7 +449,7 @@ To put it in a visual sense, think of a bullseye with a target in the center tha
 
 Here is a picture of what I mean (it may remind you of precision vs accuracy from science classes but this is not related to those concepts):
 
-<img src="./media/bias_and_variance_bullseye_analogy.jpeg" alt="drawing" width="400">
+<img src="/notebooks/media/bias_and_variance_bullseye_analogy.jpeg" alt="drawing" width="400">
 
 ---
 
@@ -457,7 +457,7 @@ Here is a picture of what I mean (it may remind you of precision vs accuracy fro
 
 You should remember that when we ran the code for polynomial regression earlier, for a high model complexity (polynomial degree =15 vs =18), the testing error (**AKA: validation error**) suddenly jumped. The graph below should help explain the relationship between bias, variance, model complexity, and error:
 
-<img src="./media/bias_variance_tradeoff_graph.jpeg" alt="drawing" width="500">
+<img src="/notebooks/media/bias_variance_tradeoff_graph.jpeg" alt="drawing" width="500">
 
 As discussed prior, the optimal model is one in which we learn patterns from the training set and effectively apply them to the testing set. Ineffective models are often those that memorize the training data and then end up performing poorly in the testing data.
 
@@ -492,11 +492,11 @@ Visually in 2D space you can think of regularization accomplishing the following
 
 Before regularization
 
-<img src="./media/2d_model_pre_regularization.png" alt="drawing" width="400">
+<img src="/notebooks/media/2d_model_pre_regularization.png" alt="drawing" width="400">
 
 After regularization
 
-<img src="./media/2d_model_post_regularization.png" alt="drawing" width="400">
+<img src="/notebooks/media/2d_model_post_regularization.png" alt="drawing" width="400">
 
 **While you may not think its possible to end up with a model that snakes through the data, we can see via polynomial regression that given enough polynomial terms, such complex curves are possible and actually quite frequent for super complex models!**
 
@@ -514,11 +514,11 @@ Example 2:
 
 Before regularization
 
-<img src="./media/2d_model2_pre_regularization.png" alt="drawing" width="400">
+<img src="/notebooks/media/2d_model2_pre_regularization.png" alt="drawing" width="400">
 
 After regularization
 
-<img src="./media/2d_model2_post_regularization.png" alt="drawing" width="400">
+<img src="/notebooks/media/2d_model2_post_regularization.png" alt="drawing" width="400">
 
 The simpler model visually seems further away from some of the blue points, but paints a more clear picture of the relationship between x and y while still maintaining the same if not better error.
 
@@ -539,7 +539,7 @@ Mathematically this function should decrease in value as the value of the averag
 
 If we were to have the average value of weights on the x axis and the value of R on the y axis, the graph would have this general trend:
 
-<img src="./media/regularization_general_idea_for_function.png" alt="drawing" width="400">
+<img src="/notebooks/media/regularization_general_idea_for_function.png" alt="drawing" width="400">
 
 Lets explore each option:
 
@@ -833,7 +833,7 @@ $$
 
 Visually this is what I mean:
 
-<img src="./media/multicolinearity_basics.png" alt="drawing" width="400">
+<img src="/notebooks/media/multicolinearity_basics.png" alt="drawing" width="400">
 
 This image shows a model with 4 weights. If we plot each datapoint in the training set as a function of its corresponding features it becomes clear that there is a strong correlation between $x_1$ and $x_2$, but not as strong as the correlation between $x_3$ and $x_4$. **We would say that $x_1$ and $x_2$ are colinear, and if we drew a 3D graph that shows a similar linear pattern but for 3 features instead of two, we would say that they are all multicolinear. Multicolinearity is just colinearity expanded into more than two dimensions.**
 

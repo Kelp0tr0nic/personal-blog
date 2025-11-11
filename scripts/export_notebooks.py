@@ -85,18 +85,24 @@ def ensure_frontmatter(markdown_path: pathlib.Path, title: str) -> None:
 def move_assets(slug: str, markdown_path: pathlib.Path, output_assets_root: pathlib.Path) -> None:
   """Move accompanying *_files directory into the public asset folder."""
   source_dir = markdown_path.parent / f"{markdown_path.stem}_files"
-  if not source_dir.exists():
-    return
-
-  target_dir = output_assets_root / slug
-  if target_dir.exists():
-    shutil.rmtree(target_dir)
-  shutil.copytree(source_dir, target_dir)
-  shutil.rmtree(source_dir)
-
   text = markdown_path.read_text(encoding="utf-8")
-  text = text.replace(f"{markdown_path.stem}_files/", f"/notebooks/{slug}/")
+
+  if source_dir.exists():
+    for file in source_dir.iterdir():
+      if file.is_file():
+        target = output_assets_root / file.name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(file, target)
+    shutil.rmtree(source_dir)
+    text = text.replace(f"{markdown_path.stem}_files/", "/notebooks/media/")
+
   text = text.replace("](media/", "](/notebooks/media/")
+  text = text.replace("](./media/", "](/notebooks/media/")
+  text = text.replace("](../media/", "](/notebooks/media/")
+  text = text.replace('src="./media/', 'src="/notebooks/media/')
+  text = text.replace("src='../media/", "src='/notebooks/media/")
+  text = text.replace("src='./media/", "src='/notebooks/media/")
+  text = text.replace("src=\"media/", "src=\"/notebooks/media/")
   markdown_path.write_text(text, encoding="utf-8")
 
 

@@ -49,7 +49,7 @@ $$\cdots$$
 
 **We can unroll the function in either direction as long as we have the inputs and you can see how this forms a chain of dependencies.**
 
-<img src="./media/rnn_chain.png">
+<img src="/notebooks/media/rnn_chain.png">
 
 
 - But what should the initial value of the hidden state be set to? (i.e. **what should $h_0$ be**?)
@@ -93,7 +93,7 @@ $$y = \sigma_2(W_{\phi} \cdot h_{\text{final}} + B)$$
 
 So the general flow of an RNN can be said to look like as follows:
 
-<img src="./media/RNN_flow.png" width=900px>
+<img src="/notebooks/media/RNN_flow.png" width=900px>
 
 $$h_1 = \sigma(W_{hh} \cdot h_{0} + W_{xh} \cdot x_1 + b_{h})$$
 

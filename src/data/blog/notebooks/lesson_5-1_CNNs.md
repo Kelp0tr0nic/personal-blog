@@ -34,7 +34,7 @@ When we last left off we covered how the kernel is applied to each patch, the ge
 
 ## Understanding Stride and Kernel Movement
 
-<img src="./media/CNN_visualization.gif" width="500px">
+<img src="/notebooks/media/CNN_visualization.gif" width="500px">
 
 Note how the kernel moves:
 
@@ -129,7 +129,7 @@ Another option is to use a technique called *pooling* which is a form of postpro
 
 Here is an example:
 
-<img src="./media/convolution_and_max_pooling_example.png" width="500px">
+<img src="/notebooks/media/convolution_and_max_pooling_example.png" width="500px">
 
 In the example, the kernel is:
 
@@ -437,7 +437,7 @@ In this way, the network builds a hierarchy: simple features are combined into c
 
 After we generalize to some high level features, what's next?
 
-<img src="./media/feature_learning_what_next.png" width="700px">
+<img src="/notebooks/media/feature_learning_what_next.png" width="700px">
 
 ## Classification: Interpreting High Level Features
 
@@ -1902,11 +1902,11 @@ In the paper, the researchers show the effectiveness of their cutmix methodology
 
 Here is how they present their findings with a simple example:
 
-<img src="./media/cutmix_paper_table_1.png" width="500px">
+<img src="/notebooks/media/cutmix_paper_table_1.png" width="500px">
 
 The paper also presents a helpful diagram to show how applying CutMix preprocessing to some common image datasets helps to achieve a lower baseline error rate with all other factors being kept the same.
 
-<img src="./media/cutmix_paper_figure_2.png" width="500px">
+<img src="/notebooks/media/cutmix_paper_figure_2.png" width="500px">
 
 We can try to replicate their experiment with some code, some sample code is provided below.
 
@@ -2159,7 +2159,7 @@ Running the code above took me about 270 minutes on a 4060 laptop GPU.
 
 The **results are shown below**:
 
-<img src="./media/CIFAR-100_resnet18_200_epochs.png" width="800px">
+<img src="/notebooks/media/CIFAR-100_resnet18_200_epochs.png" width="800px">
 
 The data shows that while both models are neck and neck, for the first 140 epochs or so, the typical model architecture is slightly more preferable.
 
@@ -2894,7 +2894,7 @@ The idea behind skip connections is to **use a residual mapping which assumes th
 
 **The identity function skips the transformations in one or more layers.**
 
-<img src="./media/residual_block.webp" width=500px>
+<img src="/notebooks/media/residual_block.webp" width=500px>
 
 Note that the resulting function: $F(x) + x$ is relatively hard to compute zeros for (in terms of utilizing gradient descent).
 
@@ -3052,7 +3052,7 @@ The code above took *12 minutes* to run on my 4060 laptop GPU.
 
 The results show remarkable evidence that the model that uses residual blocks experiences a substanial decrease in training error around 30 epochs in (in comparison to a plain CNN).
 
-<img src="./media/skip_connections_comparison_experiment.png" width="700px">
+<img src="/notebooks/media/skip_connections_comparison_experiment.png" width="700px">
 
 **Note that the y-axis is an logarithmic scale, which indicates for a simple model like this once, skip connections do not offer a meaningful benefit in comparison to a plain CNN. But for larger and deeper neural nets the effects of residual blocks that utilize skip connections, compounds!**
 
@@ -3128,7 +3128,7 @@ Here is a direct passage from the [paper](https://www.cv-foundation.org/openacce
 
 > "Next we investigate projection shortcuts (Eqn.(2)). In Table 3 we compare three options: (A) zero-padding shortcuts are used for increasing dimensions, and all shortcuts are parameterfree (the same as Table 2 and Fig. 4 right); (B) projection shortcuts are used for increasing dimensions, and other shortcuts are identity; and (C) all shortcuts are projections."
 
-<img src="./media/resnet_paper_table_3.png" width="300px" alt="Table 3">
+<img src="/notebooks/media/resnet_paper_table_3.png" width="300px" alt="Table 3">
 
 > "Table 3 shows that all three options are considerably better than the plain counterpart. B is slightly better than A. We argue that this is because the zero-padded dimensions in A indeed have no residual learning. C is marginally better than
 B, and we attribute this to the extra parameters introduced by many (thirteen) projection shortcuts. But the small differences among A/B/C indicate that projection shortcuts are not essential for addressing the degradation problem."

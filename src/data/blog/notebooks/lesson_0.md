@@ -346,7 +346,7 @@ This is the form of a line on a 2D graph with slope $m$ and intercept $b$ that w
 
 Now lets imagine a 3D graph:
 
-<img src="./media/basic_3d_graph.png" alt="drawing" width="400"/>
+<img src="/notebooks/media/basic_3d_graph.png" alt="drawing" width="400"/>
 
 Each point in the 3D space is reachable from the origin via an arrow from the origin to the point.
 
@@ -407,7 +407,7 @@ Hopefully we know the basic distance formula for points in 2D:
 
 $$d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$
 
-<img src="./media/Pythagorean_Distance.png" alt="drawing" width="400"/>
+<img src="/notebooks/media/Pythagorean_Distance.png" alt="drawing" width="400"/>
 
 **In 3D we can apply a very similar formula that simply adds another dimension**
 
@@ -636,7 +636,7 @@ $$\frac{\partial z}{\partial x} = 2x, \;\; \frac{\partial z}{\partial y} = 2y$$
 
 Intuitively if we can find a point where both derivatives are 0, that point is an extrema. For the function given above, one such point would be (x = 0, y = 0) which is the origin. Now this point is not guaranteed to minimize the function, but it is guaranteed to be an extrema (either locally a minimum or a maximum). Lets confirm this visually:
 
-<img src="./media/basic_3d_function.png" alt="drawing" width="400"/>
+<img src="/notebooks/media/basic_3d_function.png" alt="drawing" width="400"/>
 
 We can see that z is indeed minimized at (x = 0, y = 0).
 
@@ -733,7 +733,7 @@ With enough steps the difference between $x_{new}$ and $x_{old}$ becomes insigni
 indicating that we are not really moving around a whole lot. We can apply some threshold
 that stops the algorithm if a certain condition is met (ex. $x_{new} - x_{old} < 10^{-6}$).
 
-<img src="./media/gd_1.png" alt="drawing" width="400"/>
+<img src="/notebooks/media/gd_1.png" alt="drawing" width="400"/>
 
 The algorithm we came up with can be formalized mathematically as:
 
@@ -769,7 +769,7 @@ You could make the argument that the safest choice is choosing the lowest possib
 
 Suppose the following function:
 
-<img src="./media/gd_2.png" alt="drawing" width="700"/>
+<img src="/notebooks/media/gd_2.png" alt="drawing" width="700"/>
 
 Case 1: Initializing at the local maximums (gray points)
 
