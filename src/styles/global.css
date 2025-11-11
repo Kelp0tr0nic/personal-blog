@@ -11,6 +11,10 @@ html[data-theme="light"] {
   --accent: #006cac;
   --muted: #e6e6e6;
   --border: #ece9e9;
+  --code-shiki-light: #24292eff;
+  --code-shiki-light-bg: #ffffff;
+  --code-shiki-dark: #d6deeb;
+  --code-shiki-dark-bg: #011627;
 }
 
 html[data-theme="dark"] {
@@ -19,6 +23,10 @@ html[data-theme="dark"] {
   --accent: #ff6b01;
   --muted: #343f60;
   --border: #ab4b08;
+  --code-shiki-light: #24292eff;
+  --code-shiki-light-bg: #ffffff;
+  --code-shiki-dark: #d6deeb;
+  --code-shiki-dark-bg: #011627;
 }
 
 html[data-theme="catppuccin-light"] {
@@ -64,6 +72,10 @@ html[data-theme="tokyo-storm"] {
   --accent: #7aa2f7;
   --muted: #414868;
   --border: #9ece6a;
+  --code-shiki-light: #24292eff;
+  --code-shiki-light-bg: #ffffff;
+  --code-shiki-dark: #d6deeb;
+  --code-shiki-dark-bg: #011627;
 }
 
 @theme inline {
