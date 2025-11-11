@@ -34,15 +34,15 @@ jobs:
         run: |
           python scripts/export_notebooks.py \
             --input external-notebooks/math_for_ml \
-            --output src/data/blog/notebooks \
+            --output src/data/blog/_ml_notebooks \
             --public public/notebooks
 
       - name: Commit changes
         run: |
-          if git status --short | grep -E "src/data/blog/notebooks|public/notebooks"; then
+          if git status --short | grep -E "src/data/blog/_ml_notebooks|public/notebooks"; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add src/data/blog/notebooks public/notebooks
+            git add src/data/blog/_ml_notebooks public/notebooks
             git commit -m "chore: sync notebooks from ML-Insights"
             git push
           else

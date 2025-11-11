@@ -1,3 +1,4 @@
+@import "katex/dist/katex.min.css";
 @import "tailwindcss";
 @import "./typography.css";
 
@@ -74,6 +75,12 @@ html[data-theme="tokyo-storm"] {
 }
 
 @layer base {
+  pre,
+  pre code {
+    background-color: var(--shiki-color-background) !important;
+    color: var(--shiki-color-text, var(--foreground));
+  }
+
   * {
     @apply border-border outline-accent/75;
     scrollbar-width: auto;
