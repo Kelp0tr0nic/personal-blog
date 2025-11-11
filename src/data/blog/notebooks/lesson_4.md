@@ -2,7 +2,7 @@
 title: Lesson 4
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2025-11-11T03:53:59Z
+pubDatetime: 2025-11-11T04:10:13Z
 modDatetime:
 draft: true
 tags:
@@ -137,7 +137,7 @@ plt.show()
 
 
     
-![png](/notebooks/lesson-4/lesson_4_3_0.png)
+![png](/notebooks/media/lesson_4_3_0.png)
     
 
 
@@ -190,7 +190,7 @@ plt.show()
 
 
     
-![png](/notebooks/lesson-4/lesson_4_4_1.png)
+![png](/notebooks/media/lesson_4_4_1.png)
     
 
 
@@ -286,7 +286,7 @@ plt.show()
 
 
     
-![png](/notebooks/lesson-4/lesson_4_5_1.png)
+![png](/notebooks/media/lesson_4_5_1.png)
     
 
 
@@ -392,7 +392,7 @@ plt.show()
 
 
     
-![png](/notebooks/lesson-4/lesson_4_7_1.png)
+![png](/notebooks/media/lesson_4_7_1.png)
     
 
 
@@ -472,13 +472,13 @@ plt.show()
 
 
     
-![png](/notebooks/lesson-4/lesson_4_12_0.png)
+![png](/notebooks/media/lesson_4_12_0.png)
     
 
 
 
     
-![png](/notebooks/lesson-4/lesson_4_12_1.png)
+![png](/notebooks/media/lesson_4_12_1.png)
     
 
 
@@ -696,7 +696,7 @@ plt.show()
 
 
     
-![png](/notebooks/lesson-4/lesson_4_17_0.png)
+![png](/notebooks/media/lesson_4_17_0.png)
     
 
 

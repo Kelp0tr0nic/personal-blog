@@ -2,7 +2,7 @@
 title: Lesson 3
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2025-11-11T03:54:06Z
+pubDatetime: 2025-11-11T04:10:22Z
 modDatetime:
 draft: true
 tags:
@@ -217,7 +217,7 @@ plt.show()
 
 
     
-![png](/notebooks/lesson-3/lesson_3_2_0.png)
+![png](/notebooks/media/lesson_3_2_0.png)
     
 
 
@@ -506,19 +506,19 @@ if __name__ == "__main__":
 
 
     
-![png](/notebooks/lesson-3/lesson_3_6_0.png)
+![png](/notebooks/media/lesson_3_6_0.png)
     
 
 
 
     
-![png](/notebooks/lesson-3/lesson_3_6_1.png)
+![png](/notebooks/media/lesson_3_6_1.png)
     
 
 
 
     
-![png](/notebooks/lesson-3/lesson_3_6_2.png)
+![png](/notebooks/media/lesson_3_6_2.png)
     
 
 
@@ -714,6 +714,6 @@ plt.show()
 
 
     
-![png](/notebooks/lesson-3/lesson_3_8_0.png)
+![png](/notebooks/media/lesson_3_8_0.png)
     
 

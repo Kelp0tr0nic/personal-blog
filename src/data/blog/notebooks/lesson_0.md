@@ -2,7 +2,7 @@
 title: Lesson 0
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2025-11-11T03:54:04Z
+pubDatetime: 2025-11-11T04:10:20Z
 modDatetime:
 draft: true
 tags:
@@ -295,7 +295,7 @@ if __name__ == '__main__':
 
 
     
-![png](/notebooks/lesson-0/lesson_0_3_0.png)
+![png](/notebooks/media/lesson_0_3_0.png)
     
 
 
@@ -1366,7 +1366,7 @@ plt.show()
 
 
     
-![png](/notebooks/lesson-0/lesson_0_10_0.png)
+![png](/notebooks/media/lesson_0_10_0.png)
     
 
 
@@ -1474,7 +1474,7 @@ plt.show()
 
 
     
-![png](/notebooks/lesson-0/lesson_0_10_2.png)
+![png](/notebooks/media/lesson_0_10_2.png)
     
 
 

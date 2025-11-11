@@ -2,7 +2,7 @@
 title: Lesson 2
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2025-11-11T03:53:57Z
+pubDatetime: 2025-11-11T04:10:11Z
 modDatetime:
 draft: true
 tags:
@@ -67,13 +67,13 @@ plt.show()
 
 
     
-![png](/notebooks/lesson-2/lesson_2_1_0.png)
+![png](/notebooks/media/lesson_2_1_0.png)
     
 
 
 
     
-![png](/notebooks/lesson-2/lesson_2_1_1.png)
+![png](/notebooks/media/lesson_2_1_1.png)
     
 
 
@@ -619,7 +619,7 @@ if __name__ == "__main__":
 
 
     
-![png](/notebooks/lesson-2/lesson_2_4_1.png)
+![png](/notebooks/media/lesson_2_4_1.png)
     
 
 
@@ -629,6 +629,6 @@ if __name__ == "__main__":
 
 
     
-![png](/notebooks/lesson-2/lesson_2_4_3.png)
+![png](/notebooks/media/lesson_2_4_3.png)
     
 

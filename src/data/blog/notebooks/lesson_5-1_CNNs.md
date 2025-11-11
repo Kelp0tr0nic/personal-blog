@@ -2,7 +2,7 @@
 title: Lesson 5-1 Cnns
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2025-11-11T03:53:55Z
+pubDatetime: 2025-11-11T04:10:09Z
 modDatetime:
 draft: true
 tags:
@@ -810,7 +810,7 @@ keras_custom_training()
 
 
     
-![png](/notebooks/lesson-5-1-cnns/lesson_5-1_CNNs_10_6.png)
+![png](/notebooks/media/lesson_5-1_CNNs_10_6.png)
     
 
 
@@ -944,7 +944,7 @@ tensorflow_training_loop()
 
 
     
-![png](/notebooks/lesson-5-1-cnns/lesson_5-1_CNNs_11_2.png)
+![png](/notebooks/media/lesson_5-1_CNNs_11_2.png)
     
 
 
@@ -1061,7 +1061,7 @@ plt.show()
 
 
     
-![png](/notebooks/lesson-5-1-cnns/lesson_5-1_CNNs_12_1.png)
+![png](/notebooks/media/lesson_5-1_CNNs_12_1.png)
     
 
 
@@ -1754,7 +1754,7 @@ plot_probabilities(probs1, probs2, probs_mixed)
 
 
     
-![png](/notebooks/lesson-5-1-cnns/lesson_5-1_CNNs_22_0.png)
+![png](/notebooks/media/lesson_5-1_CNNs_22_0.png)
     
 
 
@@ -1765,7 +1765,7 @@ plot_probabilities(probs1, probs2, probs_mixed)
 
 
     
-![png](/notebooks/lesson-5-1-cnns/lesson_5-1_CNNs_22_2.png)
+![png](/notebooks/media/lesson_5-1_CNNs_22_2.png)
     
 
 
@@ -2840,7 +2840,7 @@ plt.show()
 
 
     
-![png](/notebooks/lesson-5-1-cnns/lesson_5-1_CNNs_33_2.png)
+![png](/notebooks/media/lesson_5-1_CNNs_33_2.png)
     
 
 
@@ -3042,7 +3042,7 @@ plt.show()
 
 
     
-![png](/notebooks/lesson-5-1-cnns/lesson_5-1_CNNs_36_0.png)
+![png](/notebooks/media/lesson_5-1_CNNs_36_0.png)
     
 
 
