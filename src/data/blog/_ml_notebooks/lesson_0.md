@@ -2,9 +2,9 @@
 title: Lesson 0
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2025-11-11T06:56:57Z
-modDatetime:
-draft: true
+pubDatetime: 2025-11-11T04:10:20Z
+modDatetime: 2025-11-11T18:01:21Z
+draft: false
 tags:
   - notebook
   - math
