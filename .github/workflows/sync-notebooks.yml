@@ -1,0 +1,54 @@
+name: Sync External Notebooks
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * *"
+  repository_dispatch:
+    types: [sync-notebooks]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout blog repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout notebook repository
+        uses: actions/checkout@v4
+        with:
+          repository: KelpFriesOG/ML-Insights
+          path: external-notebooks
+          ref: main
+          token: ${{ secrets.NOTEBOOK_REPO_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install nbconvert
+        run: pip install jupyter nbconvert
+
+      - name: Export notebooks
+        run: |
+          python scripts/export_notebooks.py \
+            --input external-notebooks/math_for_ml \
+            --output src/data/blog/notebooks \
+            --public public/notebooks
+
+      - name: Commit changes
+        run: |
+          if git status --short | grep -E "src/data/blog/notebooks|public/notebooks"; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/data/blog/notebooks public/notebooks
+            git commit -m "chore: sync notebooks from ML-Insights"
+            git push
+          else
+            echo "No notebook changes to commit."
+          fi
