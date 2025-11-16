@@ -1,7 +1,7 @@
 ---
 author: Kalpesh Chavan
 pubDatetime: 2025-11-16T18:26:44Z
-modDatetime: 
+modDatetime: 2025-11-16T18:34:01Z
 title: Making AI Useful with Retrieval Augmented Generation (RAG)
 featured: true
 draft: false
@@ -10,7 +10,7 @@ tags:
   - ai
   - langchain
   - langgraph
-description: 
+description: poggers
 ---
 
 In this article my goal is to create a simple terminal based program that shows how modern LLMs can be put to use
