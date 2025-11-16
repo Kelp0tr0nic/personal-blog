@@ -1,7 +1,7 @@
 ---
 author: Kalpesh Chavan
 pubDatetime: 2025-11-16T18:26:44Z
-modDatetime: 2025-11-16T18:34:01Z
+modDatetime: 2025-11-16T18:39:45Z
 title: Making AI Useful with Retrieval Augmented Generation (RAG)
 featured: true
 draft: false
