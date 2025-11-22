@@ -40,6 +40,7 @@ def run_nbconvert(notebook: pathlib.Path, output_dir: pathlib.Path) -> pathlib.P
           "nbconvert",
           "--to",
           "markdown",
+          "--ClearOutputPreprocessor.enabled=True",
           "--output",
           slug,
           "--output-dir",
