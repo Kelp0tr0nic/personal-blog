@@ -1,28 +1,16 @@
 ---
 title: ML Basics Lesson 0
 author: Kalpesh Chavan
-<<<<<<< HEAD
-<<<<<<< HEAD
-description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2025-11-22T23:01:11Z
-modDatetime:
-draft: true
-=======
-=======
->>>>>>> 25675e3 (removed redundancies, introduced bug tracking)
-description: A no holds barred introduction to ML!
+description: A quick introduction to the theory behind deep learning (and machine learning in general)
 pubDatetime: 2025-11-22T06:50:07Z
-modDatetime: 2025-11-22T22:54:08Z
+modDatetime: 2025-11-22T23:07:34Z
 draft: false
-<<<<<<< HEAD
->>>>>>> 25675e3 (removed redundancies, introduced bug tracking)
-=======
->>>>>>> 25675e3 (removed redundancies, introduced bug tracking)
 tags:
   - notebook
   - math
   - ml
 ---
+
 ## A quick introduction to the theory behind deep learning (and machine learning in general)
 
 Machine learning is a branch of computer science dedicated to the process of learning from data in such a way
