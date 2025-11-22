@@ -1,10 +1,10 @@
 ---
-title: Lesson 0
+title: ML Basics Lesson 0
 author: Kalpesh Chavan
-description: Lecture notes converted from Jupyter notebooks.
+description: A no holds barred introduction to ML!
 pubDatetime: 2025-11-22T06:50:07Z
-modDatetime:
-draft: true
+modDatetime: 2025-11-22T22:54:08Z
+draft: false
 tags:
   - notebook
   - math
@@ -101,124 +101,7 @@ for package in packages:
 # Install TensorFlow
 install_tensorflow()
     
-
 ```
-
-    numpy is already installed.
-    pandas is already installed.
-    matplotlib is already installed.
-    sklearn is already installed.
-    GPU detected, installing TensorFlow with GPU support...
-    Collecting tensorflow
-      Downloading tensorflow-2.20.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.5 kB)
-    Collecting absl-py>=1.0.0 (from tensorflow)
-      Downloading absl_py-2.3.1-py3-none-any.whl.metadata (3.3 kB)
-    Collecting astunparse>=1.6.0 (from tensorflow)
-      Downloading astunparse-1.6.3-py2.py3-none-any.whl.metadata (4.4 kB)
-    Collecting flatbuffers>=24.3.25 (from tensorflow)
-      Downloading flatbuffers-25.2.10-py2.py3-none-any.whl.metadata (875 bytes)
-    Collecting gast!=0.5.0,!=0.5.1,!=0.5.2,>=0.2.1 (from tensorflow)
-      Downloading gast-0.6.0-py3-none-any.whl.metadata (1.3 kB)
-    Collecting google_pasta>=0.1.1 (from tensorflow)
-      Downloading google_pasta-0.2.0-py3-none-any.whl.metadata (814 bytes)
-    Collecting libclang>=13.0.0 (from tensorflow)
-      Downloading libclang-18.1.1-py2.py3-none-manylinux2010_x86_64.whl.metadata (5.2 kB)
-    Collecting opt_einsum>=2.3.2 (from tensorflow)
-      Downloading opt_einsum-3.4.0-py3-none-any.whl.metadata (6.3 kB)
-    Requirement already satisfied: packaging in /opt/miniforge/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (25.0)
-    Collecting protobuf>=5.28.0 (from tensorflow)
-      Downloading protobuf-6.32.0-cp39-abi3-manylinux2014_x86_64.whl.metadata (593 bytes)
-    Collecting requests<3,>=2.21.0 (from tensorflow)
-      Using cached requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
-    Requirement already satisfied: setuptools in /opt/miniforge/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (80.9.0)
-    Requirement already satisfied: six>=1.12.0 in /opt/miniforge/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (1.17.0)
-    Collecting termcolor>=1.1.0 (from tensorflow)
-      Downloading termcolor-3.1.0-py3-none-any.whl.metadata (6.4 kB)
-    Requirement already satisfied: typing_extensions>=3.6.6 in /opt/miniforge/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (4.15.0)
-    Collecting wrapt>=1.11.0 (from tensorflow)
-      Downloading wrapt-1.17.3-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.4 kB)
-    Collecting grpcio<2.0,>=1.24.3 (from tensorflow)
-      Downloading grpcio-1.74.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.8 kB)
-    Collecting tensorboard~=2.20.0 (from tensorflow)
-      Downloading tensorboard-2.20.0-py3-none-any.whl.metadata (1.8 kB)
-    Collecting keras>=3.10.0 (from tensorflow)
-      Downloading keras-3.11.3-py3-none-any.whl.metadata (5.9 kB)
-    Requirement already satisfied: numpy>=1.26.0 in /opt/miniforge/envs/mlshit/lib/python3.12/site-packages (from tensorflow) (2.3.3)
-    Collecting h5py>=3.11.0 (from tensorflow)
-      Downloading h5py-3.14.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.7 kB)
-    Collecting ml_dtypes<1.0.0,>=0.5.1 (from tensorflow)
-      Downloading ml_dtypes-0.5.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.9 kB)
-    Collecting charset_normalizer<4,>=2 (from requests<3,>=2.21.0->tensorflow)
-      Downloading charset_normalizer-3.4.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (36 kB)
-    Collecting idna<4,>=2.5 (from requests<3,>=2.21.0->tensorflow)
-      Using cached idna-3.10-py3-none-any.whl.metadata (10 kB)
-    Collecting urllib3<3,>=1.21.1 (from requests<3,>=2.21.0->tensorflow)
-      Using cached urllib3-2.5.0-py3-none-any.whl.metadata (6.5 kB)
-    Collecting certifi>=2017.4.17 (from requests<3,>=2.21.0->tensorflow)
-      Using cached certifi-2025.8.3-py3-none-any.whl.metadata (2.4 kB)
-    Collecting markdown>=2.6.8 (from tensorboard~=2.20.0->tensorflow)
-      Downloading markdown-3.9-py3-none-any.whl.metadata (5.1 kB)
-    Requirement already satisfied: pillow in /opt/miniforge/envs/mlshit/lib/python3.12/site-packages (from tensorboard~=2.20.0->tensorflow) (11.3.0)
-    Collecting tensorboard-data-server<0.8.0,>=0.7.0 (from tensorboard~=2.20.0->tensorflow)
-      Downloading tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl.metadata (1.1 kB)
-    Collecting werkzeug>=1.0.1 (from tensorboard~=2.20.0->tensorflow)
-      Downloading werkzeug-3.1.3-py3-none-any.whl.metadata (3.7 kB)
-    Requirement already satisfied: wheel<1.0,>=0.23.0 in /opt/miniforge/envs/mlshit/lib/python3.12/site-packages (from astunparse>=1.6.0->tensorflow) (0.45.1)
-    Collecting rich (from keras>=3.10.0->tensorflow)
-      Downloading rich-14.1.0-py3-none-any.whl.metadata (18 kB)
-    Collecting namex (from keras>=3.10.0->tensorflow)
-      Downloading namex-0.1.0-py3-none-any.whl.metadata (322 bytes)
-    Collecting optree (from keras>=3.10.0->tensorflow)
-      Downloading optree-0.17.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (33 kB)
-    Collecting MarkupSafe>=2.1.1 (from werkzeug>=1.0.1->tensorboard~=2.20.0->tensorflow)
-      Downloading MarkupSafe-3.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
-    Collecting markdown-it-py>=2.2.0 (from rich->keras>=3.10.0->tensorflow)
-      Downloading markdown_it_py-4.0.0-py3-none-any.whl.metadata (7.3 kB)
-    Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /opt/miniforge/envs/mlshit/lib/python3.12/site-packages (from rich->keras>=3.10.0->tensorflow) (2.19.2)
-    Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich->keras>=3.10.0->tensorflow)
-      Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
-    Downloading tensorflow-2.20.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (620.7 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m620.7/620.7 MB[0m [31m36.4 MB/s[0m  [33m0:00:17[0mm0:00:01[0m00:01[0m
-    [?25hDownloading grpcio-1.74.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (6.2 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m6.2/6.2 MB[0m [31m28.4 MB/s[0m  [33m0:00:00[0m eta [36m0:00:01[0m
-    [?25hDownloading ml_dtypes-0.5.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (4.9 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m4.9/4.9 MB[0m [31m41.4 MB/s[0m  [33m0:00:00[0m
-    [?25hUsing cached requests-2.32.5-py3-none-any.whl (64 kB)
-    Downloading charset_normalizer-3.4.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (151 kB)
-    Using cached idna-3.10-py3-none-any.whl (70 kB)
-    Downloading tensorboard-2.20.0-py3-none-any.whl (5.5 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m5.5/5.5 MB[0m [31m37.2 MB/s[0m  [33m0:00:00[0m
-    [?25hDownloading tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl (6.6 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m6.6/6.6 MB[0m [31m36.6 MB/s[0m  [33m0:00:00[0m
-    [?25hUsing cached urllib3-2.5.0-py3-none-any.whl (129 kB)
-    Downloading absl_py-2.3.1-py3-none-any.whl (135 kB)
-    Downloading astunparse-1.6.3-py2.py3-none-any.whl (12 kB)
-    Using cached certifi-2025.8.3-py3-none-any.whl (161 kB)
-    Downloading flatbuffers-25.2.10-py2.py3-none-any.whl (30 kB)
-    Downloading gast-0.6.0-py3-none-any.whl (21 kB)
-    Downloading google_pasta-0.2.0-py3-none-any.whl (57 kB)
-    Downloading h5py-3.14.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.9 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m4.9/4.9 MB[0m [31m41.3 MB/s[0m  [33m0:00:00[0m
-    [?25hDownloading keras-3.11.3-py3-none-any.whl (1.4 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m1.4/1.4 MB[0m [31m36.4 MB/s[0m  [33m0:00:00[0m
-    [?25hDownloading libclang-18.1.1-py2.py3-none-manylinux2010_x86_64.whl (24.5 MB)
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m24.5/24.5 MB[0m [31m38.6 MB/s[0m  [33m0:00:00[0mm0:00:01[0m00:01[0m
-    [?25hDownloading markdown-3.9-py3-none-any.whl (107 kB)
-    Downloading opt_einsum-3.4.0-py3-none-any.whl (71 kB)
-    Downloading protobuf-6.32.0-cp39-abi3-manylinux2014_x86_64.whl (322 kB)
-    Downloading termcolor-3.1.0-py3-none-any.whl (7.7 kB)
-    Downloading werkzeug-3.1.3-py3-none-any.whl (224 kB)
-    Downloading MarkupSafe-3.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (23 kB)
-    Downloading wrapt-1.17.3-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (88 kB)
-    Downloading namex-0.1.0-py3-none-any.whl (5.9 kB)
-    Downloading optree-0.17.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (408 kB)
-    Downloading rich-14.1.0-py3-none-any.whl (243 kB)
-    Downloading markdown_it_py-4.0.0-py3-none-any.whl (87 kB)
-    Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
-    Installing collected packages: namex, libclang, flatbuffers, wrapt, urllib3, termcolor, tensorboard-data-server, protobuf, optree, opt_einsum, ml_dtypes, mdurl, MarkupSafe, markdown, idna, h5py, grpcio, google_pasta, gast, charset_normalizer, certifi, astunparse, absl-py, werkzeug, requests, markdown-it-py, tensorboard, rich, keras, tensorflow
-    [2K   [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m30/30[0m [tensorflow]0[0m [tensorflow]]data-server]
-    [1A[2KSuccessfully installed MarkupSafe-3.0.2 absl-py-2.3.1 astunparse-1.6.3 certifi-2025.8.3 charset_normalizer-3.4.3 flatbuffers-25.2.10 gast-0.6.0 google_pasta-0.2.0 grpcio-1.74.0 h5py-3.14.0 idna-3.10 keras-3.11.3 libclang-18.1.1 markdown-3.9 markdown-it-py-4.0.0 mdurl-0.1.2 ml_dtypes-0.5.3 namex-0.1.0 opt_einsum-3.4.0 optree-0.17.0 protobuf-6.32.0 requests-2.32.5 rich-14.1.0 tensorboard-2.20.0 tensorboard-data-server-0.7.2 tensorflow-2.20.0 termcolor-3.1.0 urllib3-2.5.0 werkzeug-3.1.3 wrapt-1.17.3
-    tensorflow has been installed.
 
 
 ## The Mathematical Foundations of Deep Learning: Statistics
