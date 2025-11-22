@@ -26,7 +26,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
     <section id="hero" class="pt-8 pb-6">
       <h1
         class="hero-typing my-4 inline-flex text-4xl font-bold sm:my-8 sm:text-5xl"
-        data-text="Hey, I’m Kalpesh 👋"
+        data-text="Hey, I’m Kalpesh! 🚀"
         aria-label="Hey, I’m Kalpesh"
       >
         <span id="hero-text"></span>
@@ -48,16 +48,27 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       </a>
 
       <p>
-        I’m a junior developer based in the New York tri-state area, exploring
-        how AI tooling and web tech intersect. Expect hands-on write-ups about
-        experimenting with LLM protocols, automations, and the occasional
-        front-end flourish.
+        Hi there, I'm a junior fullstack developer based out of New Jersey. Just
+        like every other CS grad, I am actively hunting for job opportunities
+        and development challenges. But if you'd like to know more about my CS
+        skillset, check out my resume
+        <a
+          href="https://resume.kelpotronic.com"
+          class="underline decoration-dashed underline-offset-4 hover:text-accent"
+        > here</a>.
       </p>
+
+      <br />
+      
       <p class="mt-2">
-        When I’m not shipping side projects, I’m sketching agent architectures
-        and testing ideas with friends in local meetups. Start with the latest
-        post or learn more about me below.
+        Of course I am more than just a job hunter and I like to document my
+        ventures in <b>AI, economics, philosophy and much more </b>on both my
+        blog and substack. This blog is as much a place for me to document my
+        learnings as it is a place for me to vent my opinions.
       </p>
+      
+      <br />
+      
       <div class="mt-4 flex flex-col gap-3 sm:flex-row">
         <LinkButton
           class="underline decoration-dashed underline-offset-4 hover:text-accent"
@@ -69,7 +80,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
           class="underline decoration-dashed underline-offset-4 hover:text-accent"
           href="/about/"
         >
-          About & Contact
+         More about me (mini-resume)
         </LinkButton>
       </div>
       {
