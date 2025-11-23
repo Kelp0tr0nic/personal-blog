@@ -2,7 +2,7 @@
 title: Lesson 6
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2025-11-22T23:01:06Z
+pubDatetime: 2025-11-23T06:52:29Z
 modDatetime:
 draft: true
 tags:
@@ -194,9 +194,6 @@ decoded_output = decoder_model(encoded_output)
 autoencoder = keras.Model(inputs=autoencoder_input, outputs=decoded_output, name='autoencoder')
 ```
 
-    I0000 00:00:1753304177.787098   49991 gpu_device.cc:2019] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 5563 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 4060 Laptop GPU, pci bus id: 0000:01:00.0, compute capability: 8.9
-
-
 ## Autoencoder Training Procedure
 
 As you may have guessed, an autoencoder involves connecting the encoder and decoder models together in one composite and unified training pipeline.
@@ -240,70 +237,6 @@ autoencoder.fit(
 
 
 ```
-
-    Downloading data from https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
-
-
-    [1m170498071/170498071[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m4s[0m 0us/step
-
-
-    2025-07-23 16:56:41.644575: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 614400000 exceeds 10% of free system memory.
-    2025-07-23 16:56:42.555254: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 614400000 exceeds 10% of free system memory.
-    2025-07-23 16:56:43.782902: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 614400000 exceeds 10% of free system memory.
-    2025-07-23 16:56:45.484911: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 614400000 exceeds 10% of free system memory.
-    2025-07-23 16:56:46.669177: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 614400000 exceeds 10% of free system memory.
-
-
-    Epoch 1/10
-
-
-    WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-    I0000 00:00:1753304213.606150   73216 service.cc:152] XLA service 0x7f7abc007f80 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
-    I0000 00:00:1753304213.606388   73216 service.cc:160]   StreamExecutor device (0): NVIDIA GeForce RTX 4060 Laptop GPU, Compute Capability 8.9
-    2025-07-23 16:56:53.790812: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
-    I0000 00:00:1753304214.924584   73216 cuda_dnn.cc:529] Loaded cuDNN version 90501
-    2025-07-23 16:56:56.300184: I external/local_xla/xla/stream_executor/cuda/subprocess_compilation.cc:346] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_dot_323', 8 bytes spill stores, 8 bytes spill loads
-    
-    2025-07-23 16:56:57.534197: I external/local_xla/xla/stream_executor/cuda/subprocess_compilation.cc:346] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_dot_601', 68 bytes spill stores, 68 bytes spill loads
-    
-    2025-07-23 16:56:58.428997: I external/local_xla/xla/stream_executor/cuda/subprocess_compilation.cc:346] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_dot_601', 16 bytes spill stores, 16 bytes spill loads
-    
-    2025-07-23 16:56:58.554501: I external/local_xla/xla/stream_executor/cuda/subprocess_compilation.cc:346] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_dot_323', 128 bytes spill stores, 128 bytes spill loads
-    
-
-
-    [1m  8/782[0m [37m━━━━━━━━━━━━━━━━━━━━[0m [1m11s[0m 15ms/step - loss: 0.6931  
-
-    I0000 00:00:1753304228.973401   73216 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
-
-
-    [1m782/782[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m42s[0m 29ms/step - loss: 0.6335 - val_loss: 0.5922
-    Epoch 2/10
-    [1m782/782[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m13s[0m 16ms/step - loss: 0.5891 - val_loss: 0.5834
-    Epoch 3/10
-    [1m782/782[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m12s[0m 15ms/step - loss: 0.5818 - val_loss: 0.5811
-    Epoch 4/10
-    [1m782/782[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m12s[0m 15ms/step - loss: 0.5790 - val_loss: 0.5784
-    Epoch 5/10
-    [1m782/782[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m14s[0m 18ms/step - loss: 0.5772 - val_loss: 0.5781
-    Epoch 6/10
-    [1m782/782[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m12s[0m 16ms/step - loss: 0.5762 - val_loss: 0.5761
-    Epoch 7/10
-    [1m782/782[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m14s[0m 17ms/step - loss: 0.5754 - val_loss: 0.5759
-    Epoch 8/10
-    [1m782/782[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m12s[0m 15ms/step - loss: 0.5743 - val_loss: 0.5754
-    Epoch 9/10
-    [1m782/782[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m12s[0m 15ms/step - loss: 0.5740 - val_loss: 0.5746
-    Epoch 10/10
-    [1m782/782[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m14s[0m 19ms/step - loss: 0.5735 - val_loss: 0.5741
-
-
-
-
-
-    <keras.src.callbacks.history.History at 0x7f7b8a363230>
-
-
 
 ## Testing the Autoencoder
 
@@ -352,16 +285,6 @@ plt.axis("off")
 
 plt.show()
 ```
-
-    [1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 69ms/step
-    [1m1/1[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 56ms/step
-
-
-
-    
-![png](/notebooks/media/lesson_6_5_1.png)
-    
-
 
 One problem is that we cannot visualize the latent space, because we cannot visualize 128 dimensions. If our embedding was in 2 or 3 dimensional space we could more easily plot the various embeddings and see clusters form.
 
@@ -438,35 +361,6 @@ autoencoder.fit(
 )
 ```
 
-    Epoch 1/10
-    [1m782/782[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m38s[0m 34ms/step - loss: 0.6550 - val_loss: 0.6361
-    Epoch 2/10
-    [1m782/782[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m17s[0m 21ms/step - loss: 0.6355 - val_loss: 0.6356
-    Epoch 3/10
-    [1m782/782[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m17s[0m 22ms/step - loss: 0.6349 - val_loss: 0.6351
-    Epoch 4/10
-    [1m782/782[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m14s[0m 17ms/step - loss: 0.6342 - val_loss: 0.6347
-    Epoch 5/10
-    [1m782/782[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m15s[0m 20ms/step - loss: 0.6343 - val_loss: 0.6344
-    Epoch 6/10
-    [1m782/782[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m14s[0m 18ms/step - loss: 0.6339 - val_loss: 0.6343
-    Epoch 7/10
-    [1m782/782[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m15s[0m 19ms/step - loss: 0.6330 - val_loss: 0.6339
-    Epoch 8/10
-    [1m782/782[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m14s[0m 17ms/step - loss: 0.6332 - val_loss: 0.6340
-    Epoch 9/10
-    [1m782/782[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m13s[0m 17ms/step - loss: 0.6328 - val_loss: 0.6335
-    Epoch 10/10
-    [1m782/782[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m15s[0m 19ms/step - loss: 0.6320 - val_loss: 0.6342
-
-
-
-
-
-    <keras.src.callbacks.history.History at 0x7f7aec45b860>
-
-
-
 
 ```python
 import numpy as np
@@ -497,12 +391,3 @@ plt.ylabel("Latent Dimension 2")
 plt.grid(True)
 plt.show()
 ```
-
-    [1m79/79[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m4s[0m 36ms/step
-
-
-
-    
-![png](/notebooks/media/lesson_6_8_1.png)
-    
-

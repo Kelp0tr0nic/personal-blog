@@ -2,7 +2,7 @@
 title: Lesson 3
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2025-11-22T23:01:13Z
+pubDatetime: 2025-11-23T06:52:36Z
 modDatetime:
 draft: true
 tags:
@@ -214,12 +214,6 @@ plt.ylabel("y")
 plt.legend()
 plt.show()
 ```
-
-
-    
-![png](/notebooks/media/lesson_3_2_0.png)
-    
-
 
 Note that in the same number of iterations, the momentum based algorithm can actually find the global
 minimum at (1, 1) despite its initially tumultous behavior. In contrast the vanilla GD algorithm moves very
@@ -504,24 +498,6 @@ if __name__ == "__main__":
     
 ```
 
-
-    
-![png](/notebooks/media/lesson_3_6_0.png)
-    
-
-
-
-    
-![png](/notebooks/media/lesson_3_6_1.png)
-    
-
-
-
-    
-![png](/notebooks/media/lesson_3_6_2.png)
-    
-
-
 ## Adaptive Momentum Estimation (ADAM) 💎
 
 So suppose we wanted to combine the benefits of momentum based gradient descent and RMS prop.
@@ -711,9 +687,3 @@ axes[1].legend()
 plt.tight_layout()
 plt.show()
 ```
-
-
-    
-![png](/notebooks/media/lesson_3_8_0.png)
-    
-

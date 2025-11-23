@@ -2,7 +2,7 @@
 title: Lesson 5-1 Cnns
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2025-11-22T23:01:00Z
+pubDatetime: 2025-11-23T06:52:23Z
 modDatetime:
 draft: true
 tags:
@@ -106,10 +106,6 @@ out = convolution(x)
 
 print(f"Input shape: {x.shape}\nOutput shape: {out.shape}")
 ```
-
-    Input shape: torch.Size([1, 1, 28, 28])
-    Output shape: torch.Size([1, 6, 26, 26])
-
 
 ## Downsampling
 
@@ -368,13 +364,6 @@ except RuntimeError as e:
     print(f"Caught error: {e}")
 ```
 
-    Valid Convolution
-    Input shape: torch.Size([1, 1, 8, 8])
-    Output shape: torch.Size([1, 1, 4, 4])
-    Caught error: Calculated padded input size per channel: (2 x 2). Kernel size: (3 x 3). Kernel size can't be greater than actual input size
-    Edge case: No errors, output shape: torch.Size([1, 1, 1, 1])
-
-
 
 ```python
 # An example that shows how to achieve effective max pooling in pytorch
@@ -391,11 +380,6 @@ pool_out_good = max_pool_good(out_good)
 
 print(f"Input shape: {input_1.shape}\nConvolution output shape: {out_good.shape}\nPost-pooling shape: {pool_out_good.shape}")
 ```
-
-    Input shape: torch.Size([1, 1, 8, 8])
-    Convolution output shape: torch.Size([1, 2, 4, 4])
-    Post-pooling shape: torch.Size([1, 2, 2, 2])
-
 
 ## Putting it Together
 
@@ -639,54 +623,6 @@ keras_training_process()
 
 ```
 
-    2025-10-10 13:13:35.889056: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-    2025-10-10 13:13:36.106208: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
-    To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-    2025-10-10 13:13:37.090551: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-    /opt/miniforge/envs/mlshit/lib/python3.12/site-packages/keras/src/layers/convolutional/base_conv.py:113: UserWarning: Do not pass an `input_shape`/`input_dim` argument to a layer. When using Sequential models, prefer using an `Input(shape)` object as the first layer in the model instead.
-      super().__init__(activity_regularizer=activity_regularizer, **kwargs)
-    WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-    I0000 00:00:1760116418.060429   10338 gpu_device.cc:2020] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 8239 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 4070 SUPER, pci bus id: 0000:01:00.0, compute capability: 8.9
-
-
-    Epoch 1/5
-
-
-    2025-10-10 13:13:39.003295: I external/local_xla/xla/service/service.cc:163] XLA service 0x7f8e7800a750 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
-    2025-10-10 13:13:39.003305: I external/local_xla/xla/service/service.cc:171]   StreamExecutor device (0): NVIDIA GeForce RTX 4070 SUPER, Compute Capability 8.9
-    2025-10-10 13:13:39.019849: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
-    2025-10-10 13:13:39.100344: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:473] Loaded cuDNN version 91300
-    2025-10-10 13:13:39.117896: I external/local_xla/xla/service/gpu/autotuning/dot_search_space.cc:208] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs? Working around this by using the full hints set instead.
-    2025-10-10 13:13:39.728592: I external/local_xla/xla/stream_executor/cuda/subprocess_compilation.cc:346] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_dot_541', 420 bytes spill stores, 420 bytes spill loads
-    
-
-
-    [1m171/844[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m0s[0m 889us/step - accuracy: 0.7463 - loss: 0.8314
-
-    I0000 00:00:1760116420.688022   10905 device_compiler.h:196] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
-
-
-    [1m843/844[0m [32m━━━━━━━━━━━━━━━━━━━[0m[37m━[0m [1m0s[0m 900us/step - accuracy: 0.8909 - loss: 0.3582
-
-    2025-10-10 13:13:41.540759: I external/local_xla/xla/service/gpu/autotuning/dot_search_space.cc:208] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs? Working around this by using the full hints set instead.
-    2025-10-10 13:13:41.995214: I external/local_xla/xla/stream_executor/cuda/subprocess_compilation.cc:346] ptxas warning : Registers are spilled to local memory in function 'gemm_fusion_dot_541', 240 bytes spill stores, 240 bytes spill loads
-    
-
-
-    [1m844/844[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m5s[0m 3ms/step - accuracy: 0.9513 - loss: 0.1587 - val_accuracy: 0.9870 - val_loss: 0.0498
-    Epoch 2/5
-    [1m844/844[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 1ms/step - accuracy: 0.9837 - loss: 0.0497 - val_accuracy: 0.9862 - val_loss: 0.0440
-    Epoch 3/5
-    [1m844/844[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 1ms/step - accuracy: 0.9895 - loss: 0.0331 - val_accuracy: 0.9878 - val_loss: 0.0407
-    Epoch 4/5
-    [1m844/844[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 1ms/step - accuracy: 0.9919 - loss: 0.0255 - val_accuracy: 0.9888 - val_loss: 0.0416
-    Epoch 5/5
-    [1m844/844[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 1ms/step - accuracy: 0.9944 - loss: 0.0181 - val_accuracy: 0.9920 - val_loss: 0.0304
-    [1m157/157[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 3ms/step - accuracy: 0.9906 - loss: 0.0302
-    
-    Test accuracy: 0.9906
-
-
 
 ```python
 # More manual and tuneable MNIST training loop with Tensorflow / Keras
@@ -785,34 +721,6 @@ def keras_custom_training():
 
 keras_custom_training()
 ```
-
-    Using device: GPU
-
-
-    2025-10-10 13:14:06.548588: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
-
-
-    Epoch 1/20 — Loss: 0.1800
-
-
-    2025-10-10 13:14:24.939195: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
-
-
-    Epoch 2/20 — Loss: 0.0770
-    Epoch 3/20 — Loss: 0.0642
-    Epoch 4/20 — Loss: 0.0582
-    Early stopping: 3 epochs below 0.08.
-    Training complete!
-
-
-    2025-10-10 13:15:01.614681: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
-
-
-
-    
-![png](/notebooks/media/lesson_5-1_CNNs_10_6.png)
-    
-
 
 
 ```python
@@ -930,24 +838,6 @@ def tensorflow_training_loop():
 tensorflow_training_loop()
 ```
 
-    Using device: GPU
-    Epoch 1/20 — Loss: 0.1666
-    Epoch 2/20 — Loss: 0.0647
-    Epoch 3/20 — Loss: 0.0532
-    Epoch 4/20 — Loss: 0.0483
-    Early stopping: 3 epochs below 0.08.
-    Training complete!
-
-
-    2025-10-10 13:16:00.820805: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
-
-
-
-    
-![png](/notebooks/media/lesson_5-1_CNNs_11_2.png)
-    
-
-
 
 ```python
 # Research grade simple CNN code using Pytorch
@@ -1049,21 +939,6 @@ plt.yscale("log")
 plt.grid(True)
 plt.show()
 ```
-
-    Using device: cuda
-    Epoch 1/20 — Loss: 0.1843
-    Epoch 2/20 — Loss: 0.0556
-    Epoch 3/20 — Loss: 0.0382
-    Epoch 4/20 — Loss: 0.0316
-    Early stopping: 3 epochs below 0.08.
-    Training complete!
-
-
-
-    
-![png](/notebooks/media/lesson_5-1_CNNs_12_1.png)
-    
-
 
 # Additional Optimizations
 
@@ -1205,34 +1080,6 @@ class CNNWithDropout(nn.Module):
 model = CNNWithDropout(n_classes=10)
 summary(model, input_size=(16, 3, 32, 32))
 ```
-
-
-
-
-    ==========================================================================================
-    Layer (type:depth-idx)                   Output Shape              Param #
-    ==========================================================================================
-    CNNWithDropout                           [16, 10]                  --
-    ├─Conv2d: 1-1                            [16, 32, 32, 32]          896
-    ├─Conv2d: 1-2                            [16, 64, 32, 32]          18,496
-    ├─MaxPool2d: 1-3                         [16, 64, 16, 16]          --
-    ├─Dropout2d: 1-4                         [16, 64, 16, 16]          --
-    ├─Linear: 1-5                            [16, 128]                 2,097,280
-    ├─Dropout: 1-6                           [16, 128]                 --
-    ├─Linear: 1-7                            [16, 10]                  1,290
-    ==========================================================================================
-    Total params: 2,117,962
-    Trainable params: 2,117,962
-    Non-trainable params: 0
-    Total mult-adds (Units.MEGABYTES): 351.30
-    ==========================================================================================
-    Input size (MB): 0.20
-    Forward/backward pass size (MB): 12.60
-    Params size (MB): 8.47
-    Estimated Total Size (MB): 21.27
-    ==========================================================================================
-
-
 
 **In the code above we used an auxillary library, `torchinfo`, in order to get an understanding of how data flows through our model and the size of the model itself, both in terms of parameters and physical storage size.**
 
@@ -1451,10 +1298,6 @@ def run_test(model_cls, name):
 run_test(TinyNoBN, "No BatchNorm")
 run_test(TinyWithBN, "With BatchNorm")
 ```
-
-    No BatchNorm  Test Loss: 0.0393  Test Acc: 98.67%
-    With BatchNorm  Test Loss: 0.0374  Test Acc: 98.82%
-
 
 ## Data Augmentation
 
@@ -1752,23 +1595,6 @@ plot_probabilities(probs1, probs2, probs_mixed)
 
 ```
 
-
-    
-![png](/notebooks/media/lesson_5-1_CNNs_22_0.png)
-    
-
-
-    Mixup loss: 1.3999
-    Mixed prediction probs: [[9.3193364e-01 1.3703265e-06 1.1240660e-03 1.8039638e-02 1.7499419e-06
-      4.7777403e-02 8.8190376e-05 9.0362632e-04 6.5385575e-05 6.4825152e-05]]
-
-
-
-    
-![png](/notebooks/media/lesson_5-1_CNNs_22_2.png)
-    
-
-
 ### CutMix Augmentation
 
 If mixup augments data by combining two images and their criterion holistically, then CutMix augmentation combines data by cutting out and repatching portions of an image into another image.
@@ -2060,101 +1886,6 @@ plt.show()
 
 ```
 
-    100.0%
-
-
-    Using cuda
-    Baseline epoch 1 finished
-    Baseline epoch 2 finished
-    Baseline epoch 3 finished
-    Baseline epoch 4 finished
-    Baseline epoch 5 finished
-    Baseline epoch 6 finished
-    Baseline epoch 7 finished
-    Baseline epoch 8 finished
-    Baseline epoch 9 finished
-    Baseline epoch 10 finished
-    Baseline epoch 11 finished
-    Baseline epoch 12 finished
-    Baseline epoch 13 finished
-    Baseline epoch 14 finished
-    Baseline epoch 15 finished
-    Baseline epoch 16 finished
-    Baseline epoch 17 finished
-    Baseline epoch 18 finished
-    Baseline epoch 19 finished
-    Baseline epoch 20 finished
-    Baseline epoch 21 finished
-    Baseline epoch 22 finished
-    Baseline epoch 23 finished
-    Baseline epoch 24 finished
-    Baseline epoch 25 finished
-    Baseline epoch 26 finished
-    Baseline epoch 27 finished
-    Baseline epoch 28 finished
-    Baseline epoch 29 finished
-    Baseline epoch 30 finished
-    Baseline epoch 31 finished
-    Baseline epoch 32 finished
-    Baseline epoch 33 finished
-    Baseline epoch 34 finished
-    Baseline epoch 35 finished
-    Baseline epoch 36 finished
-    Baseline epoch 37 finished
-    Baseline epoch 38 finished
-    Baseline epoch 39 finished
-    Baseline epoch 40 finished
-    Baseline epoch 41 finished
-    Baseline epoch 42 finished
-    Baseline epoch 43 finished
-    Baseline epoch 44 finished
-    Baseline epoch 45 finished
-    Baseline epoch 46 finished
-    Baseline epoch 47 finished
-    Baseline epoch 48 finished
-    Baseline epoch 49 finished
-    Baseline epoch 50 finished
-    Baseline epoch 51 finished
-    Baseline epoch 52 finished
-    Baseline epoch 53 finished
-    Baseline epoch 54 finished
-    Baseline epoch 55 finished
-    Baseline epoch 56 finished
-    Baseline epoch 57 finished
-    Baseline epoch 58 finished
-    Baseline epoch 59 finished
-    Baseline epoch 60 finished
-    Baseline epoch 61 finished
-    Baseline epoch 62 finished
-    Baseline epoch 63 finished
-    Baseline epoch 64 finished
-    Baseline epoch 65 finished
-    Baseline epoch 66 finished
-    Baseline epoch 67 finished
-    Baseline epoch 68 finished
-    Baseline epoch 69 finished
-    Baseline epoch 70 finished
-    Baseline epoch 71 finished
-    Baseline epoch 72 finished
-    Baseline epoch 73 finished
-    Baseline epoch 74 finished
-    Baseline epoch 75 finished
-    Baseline epoch 76 finished
-    Baseline epoch 77 finished
-    Baseline epoch 78 finished
-    Baseline epoch 79 finished
-    Baseline epoch 80 finished
-    Baseline epoch 81 finished
-    Baseline epoch 82 finished
-    Baseline epoch 83 finished
-    Baseline epoch 84 finished
-    Baseline epoch 85 finished
-    Baseline epoch 86 finished
-    Baseline epoch 87 finished
-    Baseline epoch 88 finished
-    Baseline epoch 89 finished
-
-
 Running the code above took me about 270 minutes on a 4060 laptop GPU.
 
 The **results are shown below**:
@@ -2220,10 +1951,6 @@ print(f"Shape after 'flattening' {x_gap.size()}")
 # logits = fc_layer(x_gap)
 ```
 
-    Shape before 'flattening': torch.Size([16, 32, 1, 1])
-    Shape after 'flattening' torch.Size([16, 32])
-
-
 The primary advantage of employing global pooling is that it drastically simplifies the complexity of the linear layer that follows after convolution. We can create and compare two models: one with and without global pooling to grasp just how much simpler, in terms of parameter count, one model is compared to the other.
 
 
@@ -2280,53 +2007,6 @@ print("\n=== TinyGP (Global Pool) Summary ===")
 print(summary_gp)
 
 ```
-
-    === TinyWithBN Summary ===
-    ==========================================================================================
-    Layer (type:depth-idx)                   Output Shape              Param #
-    ==========================================================================================
-    TinyWithBN                               [16, 10]                  --
-    ├─Conv2d: 1-1                            [16, 16, 32, 32]          432
-    ├─BatchNorm2d: 1-2                       [16, 16, 32, 32]          32
-    ├─Conv2d: 1-3                            [16, 32, 16, 16]          4,608
-    ├─BatchNorm2d: 1-4                       [16, 32, 16, 16]          64
-    ├─Linear: 1-5                            [16, 128]                 262,272
-    ├─Linear: 1-6                            [16, 10]                  1,290
-    ==========================================================================================
-    Total params: 268,698
-    Trainable params: 268,698
-    Non-trainable params: 0
-    Total mult-adds (Units.MEGABYTES): 30.17
-    ==========================================================================================
-    Input size (MB): 0.20
-    Forward/backward pass size (MB): 6.31
-    Params size (MB): 1.07
-    Estimated Total Size (MB): 7.58
-    ==========================================================================================
-    
-    === TinyGP (Global Pool) Summary ===
-    ==========================================================================================
-    Layer (type:depth-idx)                   Output Shape              Param #
-    ==========================================================================================
-    TinyGP                                   [16, 10]                  --
-    ├─Conv2d: 1-1                            [16, 16, 32, 32]          432
-    ├─BatchNorm2d: 1-2                       [16, 16, 32, 32]          32
-    ├─Conv2d: 1-3                            [16, 32, 16, 16]          4,608
-    ├─BatchNorm2d: 1-4                       [16, 32, 16, 16]          64
-    ├─AdaptiveAvgPool2d: 1-5                 [16, 32, 1, 1]            --
-    ├─Linear: 1-6                            [16, 10]                  330
-    ==========================================================================================
-    Total params: 5,466
-    Trainable params: 5,466
-    Non-trainable params: 0
-    Total mult-adds (Units.MEGABYTES): 25.96
-    ==========================================================================================
-    Input size (MB): 0.20
-    Forward/backward pass size (MB): 6.29
-    Params size (MB): 0.02
-    Estimated Total Size (MB): 6.51
-    ==========================================================================================
-
 
 As you can see, the singular linear layer in the Global pooling equivalent model has very few parameters, contributing to a much smaller model size overall.
 
@@ -2427,422 +2107,6 @@ plt.tight_layout()
 plt.show()
 
 ```
-
-    100.0%
-
-
-    50000
-    Epoch 1
-    Epoch 2
-    Epoch 3
-    Epoch 4
-    Epoch 5
-    Epoch 6
-    Epoch 7
-    Epoch 8
-    Epoch 9
-    Epoch 10
-    Epoch 11
-    Epoch 12
-    Epoch 13
-    Epoch 14
-    Epoch 15
-    Epoch 16
-    Epoch 17
-    Epoch 18
-    Epoch 19
-    Epoch 20
-    Epoch 21
-    Epoch 22
-    Epoch 23
-    Epoch 24
-    Epoch 25
-    Epoch 26
-    Epoch 27
-    Epoch 28
-    Epoch 29
-    Epoch 30
-    Epoch 31
-    Epoch 32
-    Epoch 33
-    Epoch 34
-    Epoch 35
-    Epoch 36
-    Epoch 37
-    Epoch 38
-    Epoch 39
-    Epoch 40
-    Epoch 41
-    Epoch 42
-    Epoch 43
-    Epoch 44
-    Epoch 45
-    Epoch 46
-    Epoch 47
-    Epoch 48
-    Epoch 49
-    Epoch 50
-    Epoch 51
-    Epoch 52
-    Epoch 53
-    Epoch 54
-    Epoch 55
-    Epoch 56
-    Epoch 57
-    Epoch 58
-    Epoch 59
-    Epoch 60
-    Epoch 61
-    Epoch 62
-    Epoch 63
-    Epoch 64
-    Epoch 65
-    Epoch 66
-    Epoch 67
-    Epoch 68
-    Epoch 69
-    Epoch 70
-    Epoch 71
-    Epoch 72
-    Epoch 73
-    Epoch 74
-    Epoch 75
-    Epoch 76
-    Epoch 77
-    Epoch 78
-    Epoch 79
-    Epoch 80
-    Epoch 81
-    Epoch 82
-    Epoch 83
-    Epoch 84
-    Epoch 85
-    Epoch 86
-    Epoch 87
-    Epoch 88
-    Epoch 89
-    Epoch 90
-    Epoch 91
-    Epoch 92
-    Epoch 93
-    Epoch 94
-    Epoch 95
-    Epoch 96
-    Epoch 97
-    Epoch 98
-    Epoch 99
-    Epoch 100
-    Epoch 101
-    Epoch 102
-    Epoch 103
-    Epoch 104
-    Epoch 105
-    Epoch 106
-    Epoch 107
-    Epoch 108
-    Epoch 109
-    Epoch 110
-    Epoch 111
-    Epoch 112
-    Epoch 113
-    Epoch 114
-    Epoch 115
-    Epoch 116
-    Epoch 117
-    Epoch 118
-    Epoch 119
-    Epoch 120
-    Epoch 121
-    Epoch 122
-    Epoch 123
-    Epoch 124
-    Epoch 125
-    Epoch 126
-    Epoch 127
-    Epoch 128
-    Epoch 129
-    Epoch 130
-    Epoch 131
-    Epoch 132
-    Epoch 133
-    Epoch 134
-    Epoch 135
-    Epoch 136
-    Epoch 137
-    Epoch 138
-    Epoch 139
-    Epoch 140
-    Epoch 141
-    Epoch 142
-    Epoch 143
-    Epoch 144
-    Epoch 145
-    Epoch 146
-    Epoch 147
-    Epoch 148
-    Epoch 149
-    Epoch 150
-    Epoch 151
-    Epoch 152
-    Epoch 153
-    Epoch 154
-    Epoch 155
-    Epoch 156
-    Epoch 157
-    Epoch 158
-    Epoch 159
-    Epoch 160
-    Epoch 161
-    Epoch 162
-    Epoch 163
-    Epoch 164
-    Epoch 165
-    Epoch 166
-    Epoch 167
-    Epoch 168
-    Epoch 169
-    Epoch 170
-    Epoch 171
-    Epoch 172
-    Epoch 173
-    Epoch 174
-    Epoch 175
-    Epoch 176
-    Epoch 177
-    Epoch 178
-    Epoch 179
-    Epoch 180
-    Epoch 181
-    Epoch 182
-    Epoch 183
-    Epoch 184
-    Epoch 185
-    Epoch 186
-    Epoch 187
-    Epoch 188
-    Epoch 189
-    Epoch 190
-    Epoch 191
-    Epoch 192
-    Epoch 193
-    Epoch 194
-    Epoch 195
-    Epoch 196
-    Epoch 197
-    Epoch 198
-    Epoch 199
-    Epoch 200
-    Time taken: 144.72556805610657ns
-    No Global Pooling  Test Loss: 2.5618  Test Acc: 73.62%
-    Epoch 1
-    Epoch 2
-    Epoch 3
-    Epoch 4
-    Epoch 5
-    Epoch 6
-    Epoch 7
-    Epoch 8
-    Epoch 9
-    Epoch 10
-    Epoch 11
-    Epoch 12
-    Epoch 13
-    Epoch 14
-    Epoch 15
-    Epoch 16
-    Epoch 17
-    Epoch 18
-    Epoch 19
-    Epoch 20
-    Epoch 21
-    Epoch 22
-    Epoch 23
-    Epoch 24
-    Epoch 25
-    Epoch 26
-    Epoch 27
-    Epoch 28
-    Epoch 29
-    Epoch 30
-    Epoch 31
-    Epoch 32
-    Epoch 33
-    Epoch 34
-    Epoch 35
-    Epoch 36
-    Epoch 37
-    Epoch 38
-    Epoch 39
-    Epoch 40
-    Epoch 41
-    Epoch 42
-    Epoch 43
-    Epoch 44
-    Epoch 45
-    Epoch 46
-    Epoch 47
-    Epoch 48
-    Epoch 49
-    Epoch 50
-    Epoch 51
-    Epoch 52
-    Epoch 53
-    Epoch 54
-    Epoch 55
-    Epoch 56
-    Epoch 57
-    Epoch 58
-    Epoch 59
-    Epoch 60
-    Epoch 61
-    Epoch 62
-    Epoch 63
-    Epoch 64
-    Epoch 65
-    Epoch 66
-    Epoch 67
-    Epoch 68
-    Epoch 69
-    Epoch 70
-    Epoch 71
-    Epoch 72
-    Epoch 73
-    Epoch 74
-    Epoch 75
-    Epoch 76
-    Epoch 77
-    Epoch 78
-    Epoch 79
-    Epoch 80
-    Epoch 81
-    Epoch 82
-    Epoch 83
-    Epoch 84
-    Epoch 85
-    Epoch 86
-    Epoch 87
-    Epoch 88
-    Epoch 89
-    Epoch 90
-    Epoch 91
-    Epoch 92
-    Epoch 93
-    Epoch 94
-    Epoch 95
-    Epoch 96
-    Epoch 97
-    Epoch 98
-    Epoch 99
-    Epoch 100
-    Epoch 101
-    Epoch 102
-    Epoch 103
-    Epoch 104
-    Epoch 105
-    Epoch 106
-    Epoch 107
-    Epoch 108
-    Epoch 109
-    Epoch 110
-    Epoch 111
-    Epoch 112
-    Epoch 113
-    Epoch 114
-    Epoch 115
-    Epoch 116
-    Epoch 117
-    Epoch 118
-    Epoch 119
-    Epoch 120
-    Epoch 121
-    Epoch 122
-    Epoch 123
-    Epoch 124
-    Epoch 125
-    Epoch 126
-    Epoch 127
-    Epoch 128
-    Epoch 129
-    Epoch 130
-    Epoch 131
-    Epoch 132
-    Epoch 133
-    Epoch 134
-    Epoch 135
-    Epoch 136
-    Epoch 137
-    Epoch 138
-    Epoch 139
-    Epoch 140
-    Epoch 141
-    Epoch 142
-    Epoch 143
-    Epoch 144
-    Epoch 145
-    Epoch 146
-    Epoch 147
-    Epoch 148
-    Epoch 149
-    Epoch 150
-    Epoch 151
-    Epoch 152
-    Epoch 153
-    Epoch 154
-    Epoch 155
-    Epoch 156
-    Epoch 157
-    Epoch 158
-    Epoch 159
-    Epoch 160
-    Epoch 161
-    Epoch 162
-    Epoch 163
-    Epoch 164
-    Epoch 165
-    Epoch 166
-    Epoch 167
-    Epoch 168
-    Epoch 169
-    Epoch 170
-    Epoch 171
-    Epoch 172
-    Epoch 173
-    Epoch 174
-    Epoch 175
-    Epoch 176
-    Epoch 177
-    Epoch 178
-    Epoch 179
-    Epoch 180
-    Epoch 181
-    Epoch 182
-    Epoch 183
-    Epoch 184
-    Epoch 185
-    Epoch 186
-    Epoch 187
-    Epoch 188
-    Epoch 189
-    Epoch 190
-    Epoch 191
-    Epoch 192
-    Epoch 193
-    Epoch 194
-    Epoch 195
-    Epoch 196
-    Epoch 197
-    Epoch 198
-    Epoch 199
-    Epoch 200
-    Time taken: 144.9526982307434ns
-    With Global Pooling  Test Loss: 0.9922  Test Acc: 66.21%
-
-
-
-    
-![png](/notebooks/media/lesson_5-1_CNNs_33_2.png)
-    
-
 
 A result of applying global pooling is a much slower converging loss value that may actually beneficial!
 
@@ -3039,12 +2303,6 @@ plt.grid(True)
 plt.show()
 
 ```
-
-
-    
-![png](/notebooks/media/lesson_5-1_CNNs_36_0.png)
-    
-
 
 The code above took *12 minutes* to run on my 4060 laptop GPU.
 

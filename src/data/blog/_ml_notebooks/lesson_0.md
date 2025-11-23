@@ -1,16 +1,15 @@
 ---
-title: ML Basics Lesson 0
+title: Lesson 0
 author: Kalpesh Chavan
-description: A quick introduction to the theory behind deep learning (and machine learning in general)
-pubDatetime: 2025-11-22T06:50:07Z
-modDatetime: 2025-11-22T23:07:34Z
-draft: false
+description: Lecture notes converted from Jupyter notebooks.
+pubDatetime: 2025-11-23T06:52:34Z
+modDatetime:
+draft: true
 tags:
   - notebook
   - math
   - ml
 ---
-
 ## A quick introduction to the theory behind deep learning (and machine learning in general)
 
 Machine learning is a branch of computer science dedicated to the process of learning from data in such a way
@@ -102,8 +101,8 @@ for package in packages:
 # Install TensorFlow
 install_tensorflow()
     
-```
 
+```
 
 ## The Mathematical Foundations of Deep Learning: Statistics
 
@@ -176,15 +175,6 @@ if __name__ == '__main__':
     main()
 
 ```
-
-
-    
-![png](/notebooks/media/lesson_0_3_0.png)
-    
-
-
-    Percentage Correct for single test of size 10: 0.497
-
 
 After running the code above, our intuition is validated, the most common outcome is indeed 50% correct!
 
@@ -436,13 +426,6 @@ def main():
 if __name__ == '__main__':
     main()
 ```
-
-    Weights: [ 0.96908822  0.74575859 -0.30510925 -0.65469114  0.9650668   0.09007921
-      0.75662496  0.02608767 -0.18699022 -0.68763486 -0.51060039]
-    Inputs: [0.88986144 0.502204   0.79424275 0.71266943 0.95645457 0.60612577
-     0.023432   0.82859815 0.85712565 0.35802718 1.        ]
-    Output: 0.6278888620228085
-
 
 ## The Mathematical Foundations of Deep Learning: Calculus
 
@@ -1249,120 +1232,6 @@ plt.show()
 ```
 
 
-    
-![png](/notebooks/media/lesson_0_10_0.png)
-    
-
-
-    Iteration 10: Error = 0.6519519240462696
-    Iteration 20: Error = 0.2820787858627606
-    Iteration 30: Error = 0.26957647041072513
-    Iteration 40: Error = 0.26280395097316017
-    Iteration 50: Error = 0.25789882431419836
-    Iteration 60: Error = 0.2543311694923636
-    Iteration 70: Error = 0.2517361640070828
-    Iteration 80: Error = 0.24984863334268834
-    Iteration 90: Error = 0.24847569904322436
-    Iteration 100: Error = 0.24747706700699212
-    Iteration 110: Error = 0.24675069143011238
-    Iteration 120: Error = 0.24622234719565558
-    Iteration 130: Error = 0.24583804513626795
-    Iteration 140: Error = 0.24555851511924906
-    Iteration 150: Error = 0.2453551932048696
-    Iteration 160: Error = 0.24520730282333658
-    Iteration 170: Error = 0.24509973170874833
-    Iteration 180: Error = 0.24502148764328718
-    Iteration 190: Error = 0.24496457521095485
-    Iteration 200: Error = 0.2449231787812721
-    Iteration 210: Error = 0.24489306823564505
-    Iteration 220: Error = 0.24487116671020182
-    Iteration 230: Error = 0.24485523618464167
-    Iteration 240: Error = 0.24484364878881024
-    Iteration 250: Error = 0.24483522045782724
-    Iteration 260: Error = 0.244829089937718
-    Iteration 270: Error = 0.24482463077766767
-    Iteration 280: Error = 0.24482138731577538
-    Iteration 290: Error = 0.2448190281169738
-    Iteration 300: Error = 0.24481731210514127
-    Iteration 310: Error = 0.24481606392859617
-    Iteration 320: Error = 0.24481515604168178
-    Iteration 330: Error = 0.2448144956714381
-    Iteration 340: Error = 0.2448140153375419
-    Iteration 350: Error = 0.244813665956791
-    Iteration 360: Error = 0.24481341182750666
-    Iteration 370: Error = 0.24481322698133826
-    Iteration 380: Error = 0.24481309252967112
-    Iteration 390: Error = 0.24481299473348217
-    Iteration 400: Error = 0.2448129235994102
-    Iteration 410: Error = 0.24481287185857803
-    Iteration 420: Error = 0.24481283422381833
-    Iteration 430: Error = 0.24481280684940074
-    Iteration 440: Error = 0.24481278693805436
-    Iteration 450: Error = 0.24481277245512645
-    Iteration 460: Error = 0.2448127619206707
-    Iteration 470: Error = 0.24481275425821733
-    Iteration 480: Error = 0.2448127486847741
-    Iteration 490: Error = 0.2448127446308154
-    Iteration 500: Error = 0.24481274168208508
-    Iteration 510: Error = 0.24481273953726526
-    Iteration 520: Error = 0.24481273797718647
-    Iteration 530: Error = 0.24481273684243085
-    Iteration 540: Error = 0.24481273601704318
-    Iteration 550: Error = 0.24481273541668053
-    Iteration 560: Error = 0.24481273497999428
-    Iteration 570: Error = 0.24481273466236142
-    Iteration 580: Error = 0.2448127344313247
-    Iteration 590: Error = 0.24481273426327546
-    Iteration 600: Error = 0.24481273414104138
-    Iteration 610: Error = 0.24481273405213194
-    Iteration 620: Error = 0.24481273398746164
-    Iteration 630: Error = 0.24481273394042247
-    Iteration 640: Error = 0.24481273390620756
-    Iteration 650: Error = 0.24481273388132072
-    Iteration 660: Error = 0.24481273386321878
-    Iteration 670: Error = 0.2448127338500518
-    Iteration 680: Error = 0.2448127338404746
-    Iteration 690: Error = 0.24481273383350838
-    Iteration 700: Error = 0.24481273382844143
-    Iteration 710: Error = 0.24481273382475588
-    Iteration 720: Error = 0.24481273382207516
-    Iteration 730: Error = 0.24481273382012514
-    Iteration 740: Error = 0.24481273381870688
-    Iteration 750: Error = 0.24481273381767527
-    Iteration 760: Error = 0.2448127338169249
-    Iteration 770: Error = 0.24481273381637908
-    Iteration 780: Error = 0.24481273381598204
-    Iteration 790: Error = 0.24481273381569327
-    Iteration 800: Error = 0.24481273381548316
-    Iteration 810: Error = 0.24481273381533042
-    Iteration 820: Error = 0.24481273381521926
-    Iteration 830: Error = 0.24481273381513843
-    Iteration 840: Error = 0.24481273381507973
-    Iteration 850: Error = 0.2448127338150369
-    Iteration 860: Error = 0.2448127338150057
-    Iteration 870: Error = 0.24481273381498314
-    Iteration 880: Error = 0.2448127338149667
-    Iteration 890: Error = 0.2448127338149547
-    Iteration 900: Error = 0.24481273381494606
-    Iteration 910: Error = 0.2448127338149396
-    Iteration 920: Error = 0.24481273381493515
-    Iteration 930: Error = 0.2448127338149317
-    Iteration 940: Error = 0.2448127338149293
-    Iteration 950: Error = 0.24481273381492752
-    Iteration 960: Error = 0.24481273381492627
-    Iteration 970: Error = 0.24481273381492533
-    Iteration 980: Error = 0.24481273381492452
-    Iteration 990: Error = 0.24481273381492424
-    Iteration 1000: Error = 0.2448127338149238
-
-
-
-    
-![png](/notebooks/media/lesson_0_10_2.png)
-    
-
-
-
 ```python
 # The code below illustrates the effectiveness of the numpy package for matrix operations compared to using for loops
 # Give the code some time to run. With s = 500 it should take no more than 2 minutes
@@ -1417,8 +1286,3 @@ def main():
 if __name__ == '__main__':
     main()
 ```
-
-    Time taken to perform matrix multiplication using numpy: 0.004975557327270508 seconds
-    Time taken to perform matrix multiplication using for loops: 27.597330570220947 seconds
-    The results are the same!
-

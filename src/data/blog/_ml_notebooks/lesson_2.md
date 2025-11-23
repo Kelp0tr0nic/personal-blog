@@ -2,7 +2,7 @@
 title: Lesson 2
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2025-11-22T23:01:02Z
+pubDatetime: 2025-11-23T06:52:25Z
 modDatetime:
 draft: true
 tags:
@@ -64,18 +64,6 @@ y = np.maximum(0, x)
 plt.plot(x, y)
 plt.show()
 ```
-
-
-    
-![png](/notebooks/media/lesson_2_1_0.png)
-    
-
-
-
-    
-![png](/notebooks/media/lesson_2_1_1.png)
-    
-
 
 While the Relu function isn't "smooth" nor is it limited at an output range of $[0, 1]$, we can clip the output to $[0, 1]$ artifically and place coefficents on the linear part of the function to make its slope configurable.
 
@@ -613,22 +601,3 @@ if __name__ == "__main__":
     main()
 
 ```
-
-    Gradient Descent with Simple Quadratic Loss:
-
-
-
-    
-![png](/notebooks/media/lesson_2_4_1.png)
-    
-
-
-    
-    Gradient Descent with Complex Polynomial Loss:
-
-
-
-    
-![png](/notebooks/media/lesson_2_4_3.png)
-    
-

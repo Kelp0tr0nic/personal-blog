@@ -2,7 +2,7 @@
 title: Lesson 1
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2025-11-22T23:00:58Z
+pubDatetime: 2025-11-23T06:52:20Z
 modDatetime:
 draft: true
 tags:
@@ -65,25 +65,6 @@ for package in packages:
 # Install TensorFlow
 install_tensorflow()
 ```
-
-    numpy is already installed.
-    pandas is already installed.
-    matplotlib is already installed.
-    sklearn is already installed.
-
-
-    2025-09-11 09:37:53.255698: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
-    2025-09-11 09:37:53.255914: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-    2025-09-11 09:37:53.283393: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
-    To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-
-
-    tensorflow is already installed.
-
-
-    2025-09-11 09:37:53.985464: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
-    2025-09-11 09:37:53.985738: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
-
 
 We covered *a lot* of stuff in the previous lesson, but moving forward we will assume that you are familiar with these concepts and at the very least remember what stays common across all machine learning models (including deep learning).
 
@@ -308,17 +289,6 @@ plt.title('Polynomial Regression of Varying Degrees')
 plt.show()
 
 ```
-
-    Degree 1 - Train Error: 0.75, Test Error: 0.86
-    Degree 4 - Train Error: 0.22, Test Error: 0.34
-    Degree 100 - Train Error: 0.74, Test Error: 0.87
-
-
-
-    
-![png](/notebooks/media/lesson_1_2_1.png)
-    
-
 
 ### Discussion of the Code above
 
@@ -950,21 +920,6 @@ plt.legend()
 plt.title('Comparison of various models and their L1 and L2 counterparts')
 plt.show()
 ```
-
-    Errors for regular model, train error: 0.26, test error: 0.52
-    Errors for L1 model, train error: 0.21, test error: 0.33
-    Errors for L2 model, train error: 1.85, test error: 0.96
-
-
-    /opt/miniforge/envs/mlshit/lib/python3.12/site-packages/sklearn/linear_model/_coordinate_descent.py:695: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 7.309e+00, tolerance: 5.291e-03
-      model = cd_fast.enet_coordinate_descent(
-
-
-
-    
-![png](/notebooks/media/lesson_1_6_2.png)
-    
-
 
 When experimenting with different polynomial degrees, it becomes evident that regularization does not uniformly enhance model performance. This variability can be attributed to the fact that excessive regularization can cause underfitting, particularly evident in models regulated heavily with L1 regression.
 
