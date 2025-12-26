@@ -2,7 +2,7 @@
 title: Lesson 6
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2025-12-25T06:33:40Z
+pubDatetime: 2025-12-26T06:32:56Z
 modDatetime:
 draft: true
 tags:
