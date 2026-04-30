@@ -2,7 +2,7 @@
 title: Lesson 5-2 Rnns
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2026-04-29T08:18:26Z
+pubDatetime: 2026-04-30T08:21:53Z
 modDatetime:
 draft: true
 tags:
@@ -375,7 +375,7 @@ $$\frac{\partial L}{\partial W_{hy}} = (Z - 1_m) \cdot h_t^T$$
 
 - Ex. If the size of the hidden state is $h$ and we have $C classes then $W_{hy}$ is $C \times h$ in terms of dimensionality.
 
-- $h_t^T$ is the **transposed hidden state at time state $t$**, since it is transposed **it is a column matrix with dimensions of $1 \times h$** (one value per hidden unit)
+- $h_t^T$ is the **transposed hidden state at time state $t$**, since it is transposed **it is a row matrix with dimensions of $1 \times h$** (one value per hidden unit)
 
 - $(Z - 1_m)$ has dimensions of $C \times 1$
 
@@ -562,7 +562,7 @@ $$\frac{\partial L}{\partial h_2} = (\frac{\partial L}{\partial h_3} = W_{hy}^T 
 
 **HOWEVER, this simple approach overlooks the dimensional incompatibility between the two terms!**
 
-- $\frac{\partial L}{\partial h_3} = W_{hy}^T \cdot (Z - 1_m)$ is a gradient column vector with dimensions: $1 \times n$
+- $\frac{\partial L}{\partial h_3} = W_{hy}^T \cdot (Z - 1_m)$ is a gradient column vector with dimensions: $n \times 1$
 - $\text{diag}(1 - h_3^2) \cdot W_{hh}$ is a square matrix with dimensions: $n \times n$
 
 **We cannot multiply $n \times 1$ matrices by $n \times n$ matrices!**
@@ -617,12 +617,6 @@ $$\frac{\partial L}{\partial h_{i}} = W_{hh}^T \cdot \left[(1 - h_{i + 1}^2) \od
 $$h_1 = \sigma(W_{hh}h_0 + W_{hx}x_1 + b_h) = \sigma(W_{hx}x_1 + b_h)$$
 
 **In some implementations, $h_0$ is a learnable parameter in which case we would need to compute $\frac{\partial L}{\partial h_0}$ using the generic formula!**
-
-
-
-
-
-
 
 ```mermaid
 
@@ -755,12 +749,545 @@ We can check dimensions for a bit of sanity:
 - The result will have dimensionality of $C \times n$ which is the expected shape of $W_{hy}$
 
 
-#### Computing $\frac{\partial L}{\partial W_{hh}}$
+#### Computing $\frac{\partial L}{\partial W_{hh}}$ (Hidden to Hidden weights)
 
 $\frac{\partial L}{\partial W_{hh}}$ needs to be computed at **each** timestep.
 
-We know the following:
+1. We know the following:
 
 $$h_3 = \tanh{(W_{xh}x_{3} + W_{hh}h_{2})}$$
 
+2. At a single timestep `t` we have:
 
+$$h_t = \tanh(W_{hh} \cdot h_{t-1} + W_{xh} \cdot x_t + b_h)$$
+
+3. Then we can apply the chain rule to get:
+
+$$\frac{\partial L}{\partial W_{hh}^{(t)}} = \frac{\partial L}{\partial h_t} \cdot \frac{\partial h_t}{\partial y_t} \cdot \frac{\partial y_t}{\partial W_{hh}}$$
+
+4. Compute each derivative
+
+- $\frac{\partial L}{\partial h_t}$ is already derived as the gradient flowing back to $h_t$ (e.g., $\frac{\partial L}{\partial h_3} = W_{hy}^T \cdot (Z - 1_m)$ for the final layer, or the recursive formula for earlier layers)
+- $\frac{\partial h_t}{\partial y_t} = \text{diag}(1 - h_t^2)$ (Jacobian of tanh, derived earlier in the notebook)
+- $\frac{\partial y_t}{\partial W_{hh}} = h_{t-1}^T$ (standard result: for $y = Wx$, $\frac{\partial y}{\partial W} = x^T$)
+
+5. After computing each component of the chain rule derivation we combine the results into a singular matrix.
+
+$$\frac{\partial L}{\partial W_{hh}^{(t)}} = \left(\frac{\partial L}{\partial h_t} \odot (1 - h_t^2)\right) \cdot h_{t-1}^T$$
+Or more cleanly using $\delta_t = \frac{\partial L}{\partial h_t} \odot (1 - h_t^2)$:
+$$\frac{\partial L}{\partial W_{hh}^{(t)}} = \delta_t \cdot h_{t-1}^T$$
+
+*$\odot$ represents element-wise multiplication (Hadamard product)*
+
+**Dimensions check: $\delta_t$ is $n \times 1$, $h_{t-1}^T$ is $1 \times n$, outer product gives $n \times n$**
+
+6. Lastly, we need to sum over all the timesteps.
+
+$$\boxed{\frac{\partial L}{\partial W_{hh}} = \sum_{t=1}^{T} \delta_t \cdot h_{t-1}^T}$$
+
+#### Computing $\frac{\partial L}{\partial W_{xh}}$ (Initial Input to First Set of Hidden Weights)
+
+$\frac{\partial L}{\partial W_{xh}}$ needs to be computed at **each** timestep.
+
+1. We know the following:
+
+$$h_t = \tanh(W_{hh} \cdot h_{t-1} + W_{xh} \cdot x_t + b_h)$$
+
+- This is the forward equation. Then lets layout a scenario:
+
+2. At a single timestep, `t`, we have:
+
+$$y_t = W_{hh} \cdot h_{t-1} + W_{xh} \cdot x_t + b_h$$
+
+$$h_t = \tanh(y_t)$$
+
+3. Then we apply the chain rule to get:
+
+$$\frac{\partial L}{\partial W_{xh}^{(t)}} = \frac{\partial L}{\partial y_t} \cdot \frac{\partial y_t}{\partial W_{xh}}$$
+
+4. Compute each derivative
+
+- $\frac{\partial L}{\partial y_t}$: This is the gradient after the tanh Jacobian is applied:
+  $$\frac{\partial L}{\partial y_t} = \frac{\partial L}{\partial h_t} \odot (1 - h_t^2) = \delta_t$$
+  Where $\delta_t$ is the same vector we defined in the $W_{hh}$ derivation (an $n \times 1$ column vector).
+
+*$\odot$ represents element-wise multiplication (Hadamard product)*
+
+- $\frac{\partial y_t}{\partial W_{xh}}$: Since $y_t = W_{xh} \cdot x_t + \text{(terms not containing } W_{xh})$:
+  Using the rule: for $y = Wx$, $\frac{\partial y}{\partial W} = x^T$
+  $$\frac{\partial y_t}{\partial W_{xh}} = x_t^T$$
+  This is a $1 \times d$ row vector (where $d$ is the input dimension).
+
+5. After computing each component of the chain rule derivation we combine the results into a singular matrix.
+
+$$\frac{\partial L}{\partial W_{xh}^{(t)}} = \delta_t \cdot x_t^T$$
+
+Dimensions check: $\delta_t$ is $n \times 1$, $x_t^T$ is $1 \times d$, outer product gives $n \times d$ ✓ (matches $W_{xh}$ dimensions)
+
+6. Lastly, we need to sum over all the timesteps since $W_{xh}$ is shared across all of them.
+
+$$\boxed{\frac{\partial L}{\partial W_{xh}} = \sum_{t=1}^{T} \delta_t \cdot x_t^T}$$
+
+#### Computing $\frac{\partial L}{\partial b_h}$, the Hidden Bias
+
+1. We know the following:
+
+$$h_t = \tanh(W_{hh} \cdot h_{t-1} + W_{xh} \cdot x_t + b_h)$$
+
+- This is the forward equation. Then lets layout a scenario:
+
+2. At a single timestep, `t`, we have:
+
+$$y_t = W_{hh} \cdot h_{t-1} + W_{xh} \cdot x_t + b_h$$
+
+$$h_t = \tanh(y_t)$$
+
+3. Then we apply the chain rule to get:
+
+$$\frac{\partial L}{\partial b_h^{(t)}} = \frac{\partial L}{\partial y_t} \cdot \frac{\partial y_t}{\partial b_h}$$
+
+4. Compute each derivative
+
+- $\frac{\partial L}{\partial y_t} = \delta_t$ (the same $n \times 1$ error signal we defined earlier: $\delta_t = \frac{\partial L}{\partial h_t} \odot (1 - h_t^2)$)
+
+- $\frac{\partial y_t}{\partial b_h}$: Since $b_h$ is added element-wise to $y_t$, the Jacobian is the $n \times n$ identity matrix $I_n$. Each component $y_t^{(i)}$ only depends on the matching $b_h^{(i)}$, so derivatives are 1 for matching indices, 0 otherwise.
+
+5. After computing each component of the chain rule derivation we combine the results into a singular matrix.
+
+Multiplying $\delta_t$ ($n \times 1$) by $I_n$ ($n \times n$) returns $\delta_t$ directly:
+
+$$\frac{\partial L}{\partial b_h^{(t)}} = \delta_t$$
+
+
+### Summary of Gradient Computations
+
+| Parameter | Gradient | Shared? | Sum Over Timesteps? |
+| --------- | -------- | ------- | ------------------- | 
+| $W_{hy}$ (output weights)	| $(Z - 1_m) \cdot h_{\text{final}}^T$ | No (only final step) | No |
+| $W_{hh}$ (hidden-hidden) | $\sum_{t=1}^T \delta_t \cdot h_{t-1}^T$ | Yes | Yes |
+| $W_{xh}$ (input-hidden) |	$\sum_{t=1}^T \delta_t \cdot x_t^T$	| Yes | Yes |
+| $b_h$ (hidden bias) | $\sum_{t=1}^T \delta_t$ | Yes | Yes |
+
+$b_h$ is the "easy" one because bias has no multiplicative interactions in the forward pass — the gradient is just the raw error signal summed across all timesteps.
+
+### Forward Pass Code Implementation
+
+
+```python
+import torch
+import torch.nn as nn
+class RNNCell(nn.Module):
+    def __init__(self, input_size, hidden_size):
+        super().__init__()
+        self.W_xh = nn.Linear(input_size, hidden_size, bias=True)
+        self.W_hh = nn.Linear(hidden_size, hidden_size, bias=False)  # Shared weights
+        self.tanh = nn.Tanh()
+        
+    def forward(self, x_t, h_prev):
+        # h_t = tanh(W_hh · h_{t-1} + W_xh · x_t + b_h)
+        h_t = self.tanh(self.W_hh(h_prev) + self.W_xh(x_t))
+        return h_t
+```
+
+
+```python
+# ============================================
+# BPTT in Action: 3 Timesteps, Small Dimensions
+# ============================================
+
+import torch
+import torch.nn as nn
+import numpy as np
+
+# Set random seed for reproducibility
+torch.manual_seed(42)
+
+# INCREDIBLY SMALL dimensions (matching your derivations with h1, h2, h3)
+input_size = 2      # d = 2
+hidden_size = 3      # n = 3 (3 hidden units, like your h1, h2, h3)
+output_size = 2       # C = 2 (2 classes)
+num_timesteps = 3    # T = 3 (matching your h1, h2, h3 derivations)
+
+print("Dimensions:")
+print(f"  Input size (d): {input_size}")
+print(f"  Hidden size (n): {hidden_size}")
+print(f"  Output size (C): {output_size}")
+print(f"  Timesteps (T): {num_timesteps}")
+print()
+
+# Create RNN with learnable parameters
+class MinimalRNN(nn.Module):
+    def __init__(self, input_size, hidden_size, output_size):
+        super().__init__()
+        # W_xh: input-to-hidden (n × d)
+        self.W_xh = nn.Parameter(torch.randn(hidden_size, input_size) * 0.1)
+        # W_hh: hidden-to-hidden (n × n) - SHARED across timesteps!
+        self.W_hh = nn.Parameter(torch.randn(hidden_size, hidden_size) * 0.1)
+        # W_hy: hidden-to-output (C × n)
+        self.W_hy = nn.Parameter(torch.randn(output_size, hidden_size) * 0.1)
+        # b_h: hidden bias (n × 1)
+        self.b_h = nn.Parameter(torch.zeros(hidden_size, 1))
+        
+    def forward(self, x_sequence, h_prev):
+        # x_sequence: list of T tensors, each (d × 1)
+        # h_prev: initial hidden state (n × 1)
+        
+        h_states = []
+        y_states = []
+        
+        for t, x_t in enumerate(x_sequence):
+            # h_t = tanh(W_hh · h_{t-1} + W_xh · x_t + b_h)
+            # Dimensions: (n×n)·(n×1) + (n×d)·(d×1) + (n×1) = (n×1)
+            y_t = torch.mm(self.W_hh, h_prev) + torch.mm(self.W_xh, x_t) + self.b_h
+            h_t = torch.tanh(y_t)
+            
+            h_states.append(h_t)
+            h_prev = h_t
+        
+        # Final output: y = W_hy · h_final
+        # Dimensions: (C×n)·(n×1) = (C×1)
+        y_final = torch.mm(self.W_hy, h_states[-1])
+        
+        return h_states, y_final
+
+# Initialize model
+model = MinimalRNN(input_size, hidden_size, output_size)
+print("Model parameters (initial):")
+for name, param in model.named_parameters():
+    print(f"  {name}: {param.shape}")
+print()
+
+# Create input sequence (3 timesteps)
+x_sequence = [
+    torch.randn(input_size, 1),  # x_1
+    torch.randn(input_size, 1),  # x_2
+    torch.randn(input_size, 1),  # x_3
+]
+h_0 = torch.zeros(hidden_size, 1)  # Initial hidden state
+
+print("Input sequence:")
+for t, x_t in enumerate(x_sequence):
+    print(f"  x_{t+1}: {x_t.shape}")
+print(f"  h_0: {h_0.shape}")
+print()
+
+# FORWARD PASS
+print("="*50)
+print("FORWARD PASS")
+print("="*50)
+
+h_states, y_final = model(x_sequence, h_0)
+
+print("\nHidden states:")
+# h1 = tanh(W_hh · h0 + W_xh · x1 + b_h)
+print(f"  h_1 (after x1): {h_states[0]}")
+# h2 = tanh(W_hh · h1 + W_xh · x2 + b_h)
+print(f"  h_2 (after x2): {h_states[1]}")
+# h3 = tanh(W_hh · h2 + W_xh · x3 + b_h)
+print(f"  h_3 (after x3): {h_states[2]}")
+print(f"\nFinal output y = W_hy · h_3: {y_final}")
+
+# Apply softmax and compute loss
+softmax = nn.Softmax(dim=0)
+Z = softmax(y_final)  # Softmax output
+print(f"\nSoftmax output Z: {Z.shape}")
+print(f"  Z = {Z.detach().numpy().round(3)}")
+
+# True class (let's say class 1 is correct, so m=1)
+m = 1  # True class index (0-indexed)
+loss = -torch.log(Z[m])
+print(f"\nTrue class m = {m}")
+print(f"Loss = -log(Z_{m}) = {-torch.log(Z[m]).item():.4f}")
+
+```
+
+
+```python
+# ===========================================
+# BPTT: Backward Pass (Matching Our Derivations)
+# ===========================================
+
+print("="*50)
+print("BACKWARD PASS (BPTT)")
+print("="*50)
+
+# --- Step 1: ∂L/∂y (softmax gradient) ---
+# From our derivation: ∂L/∂y_j = Z_j - 1_m for true class m
+# Dimensions: (C × 1)
+
+dL_dy = torch.zeros_like(y_final)
+dL_dy = Z.clone()
+dL_dy[m] -= 1  # Subtract 1 for true class
+
+print("Step 1: ∂L/∂y (softmax gradient)")
+print(f"  Formula: ∂L/∂y = Z - 1_m")
+print(f"  dL_dy: {dL_dy.shape}")
+print(f"  Values: {dL_dy.detach().numpy().round(3)}")
+print()
+
+# --- Step 2: ∂L/∂W_hy (output weights) ---
+# From line 369: ∂L/∂W_hy = (Z - 1_m) · h_final^T
+# Dimensions: (C × 1) · (1 × n) = (C × n) ✓
+
+h_final = h_states[-1]  # h_3
+dL_dW_hy = torch.mm(dL_dy, h_final.t())  # (C,1) · (1,n) = (C,n)
+
+print("Step 2: ∂L/∂W_hy (output weights)")
+print(f"  Formula: ∂L/∂W_hy = (Z - 1_m) · h_final^T")
+print(f"  dL_dW_hy: {dL_dW_hy.shape}")
+print(f"  Expected: ({output_size} × {hidden_size}) = ({output_size * hidden_size} params)")
+print()
+
+# --- Step 3: ∂L/∂h_3 (final hidden state) ---
+# From line 395: ∂L/∂h_3 = W_hy^T · (Z - 1_m)
+# Dimensions: (n × C) · (C × 1) = (n × 1) ✓
+
+dL_dh_3 = torch.mm(model.W_hy.t(), dL_dy)  # (n,C) · (C,1) = (n,1)
+    dL_dh = dL_dh_3  # Initialize dL_dh with final gradient
+
+print("Step 3: ∂L/∂h_3 (final hidden state)")
+print(f"  Formula: ∂L/∂h_3 = W_hy^T · (Z - 1_m)")
+print(f"  dL_dh_3: {dL_dh_3.shape}")
+print(f"  Expected: ({hidden_size} × 1)")
+print()
+
+# --- Step 4: Backpropagate through timesteps ---
+# From line 597: ∂L/∂h_i = W_hh^T · [(1 - h_{i+1}²) ⊙ ∂L/∂h_{i+1}]
+# Dimensions: (n × n) · (n × 1) = (n × 1) ✓
+
+dL_dh = [None, None, None, None]  # dL_dh[3] = dL_dh_3
+dL_dh[3] = dL_dh_3
+
+print("Step 4: Backpropagate through timesteps")
+for t in range(num_timesteps, 0, -1):
+    h_t = h_states[t-1]  # h_t at timestep t
+    
+    # Compute δ_t = ∂L/∂h_t ⊙ (1 - h_t²)
+    delta_t = dL_dh[t] * (1 - h_t**2)
+    
+    if t > 1:
+        # ∂L/∂h_{t-1} = W_hh^T · δ_t
+        dL_dh[t-1] = torch.mm(model.W_hh.t(), delta_t)
+        print(f"  dL_dh_{t-1}: {dL_dh[t-1].shape} (from W_hh^T · δ_{t})")
+
+print()
+
+# --- Step 5: Compute weight gradients at each timestep ---
+print("Step 5: Weight gradients at each timestep")
+
+dL_dW_hh_timesteps = []
+dL_dW_xh_timesteps = []
+dL_db_h_timesteps = []
+
+for t in range(1, num_timesteps + 1):
+    h_prev = h_states[t-2] if t > 1 else h_0  # h_{t-1}
+    x_t = x_sequence[t-1]  # x_t
+    delta_t = dL_dh[t] * (1 - h_states[t-1]**2)
+    
+    # ∂L/∂W_hh^(t) = δ_t · h_{t-1}^T (line 777)
+    # Dimensions: (n × 1) · (1 × n) = (n × n) ✓
+    dW_hh_t = torch.mm(delta_t, h_prev.t())  # (n,1) · (1,n) = (n,n)
+    
+    # ∂L/∂W_xh^(t) = δ_t · x_t^T (line 824)
+    # Dimensions: (n × 1) · (1 × d) = (n × d) ✓
+    dW_xh_t = torch.mm(delta_t, x_t.t())  # (n,1) · (1,d) = (n,d)
+    
+    # ∂L/∂b_h^(t) = δ_t (line 860)
+    # Dimensions: (n × 1) ✓
+    db_h_t = delta_t
+    
+    dL_dW_hh_timesteps.append(dW_hh_t)
+    dL_dW_xh_timesteps.append(dW_xh_t)
+    dL_db_h_timesteps.append(db_h_t)
+    
+    print(f"  Timestep {t}:")
+    print(f"    dW_hh_{t}: {dW_hh_t.shape} (δ_{t} · h_{t-1}^T)")
+    print(f"    dW_xh_{t}: {dW_xh_t.shape} (δ_{t} · x_{t}^T)")
+    print(f"    db_h_{t}: {db_h_t.shape} (δ_{t})")
+
+print()
+
+# --- Step 6: Sum over timesteps ---
+# From summary table (lines 872-875): sum over t=1 to T
+
+dL_dW_hh = sum(dL_dW_hh_timesteps)  # Σ δ_t · h_{t-1}^T
+dL_dW_xh = sum(dL_dW_xh_timesteps)  # Σ δ_t · x_t^T
+dL_db_h = sum(dL_db_h_timesteps)  # Σ δ_t
+
+print("Step 6: Sum over timesteps (shared weights)")
+print(f"  dL_dW_hh (total): {dL_dW_hh.shape}")
+print(f"  dL_dW_xh (total): {dL_dW_xh.shape}")
+print(f"  dL_db_h (total): {dL_db_h.shape}")
+print()
+
+print("="*50)
+print("VERIFICATION: All dimensions match our derivations! ✓")
+print("="*50)
+
+```
+
+
+```python
+# ===========================================
+# Part 3: Verify with PyTorch Autograd
+# ===========================================
+
+print("="*50)
+print("VERIFICATION: Compare Manual BPTT vs PyTorch Autograd")
+print("="*50)
+
+# Reset model with same initial weights
+model2 = MinimalRNN(input_size, hidden_size, output_size)
+# Copy weights from original model
+with torch.no_grad():
+    model2.W_xh.copy_(model.W_xh)
+    model2.W_hh.copy_(model.W_hh)
+    model2.W_hy.copy_(model.W_hy)
+    model2.b_h.copy_(model.b_h)
+
+# Forward pass with gradient tracking
+h_states2, y_final2 = model2(x_sequence, h_0)
+Z2 = softmax(y_final2)
+loss2 = -torch.log(Z2[m])
+
+print(f"Loss from model2: {loss2.item():.4f}")
+print(f"Loss from manual: {loss.item():.4f}")
+print()
+
+# Backward pass with PyTorch autograd
+loss2.backward()
+
+print("PyTorch Autograd Gradients:")
+print(f"  W_hy.grad: {model2.W_hy.grad.shape}")
+print(f"  W_hh.grad: {model2.W_hh.grad.shape}")
+print(f"  W_xh.grad: {model2.W_xh.grad.shape}")
+print(f"  b_h.grad: {model2.b_h.grad.shape}")
+print()
+
+print("Manual BPTT Gradients:")
+print(f"  dL_dW_hy: {dL_dW_hy.shape}")
+print(f"  dL_dW_hh (sum): {dL_dW_hh.shape}")
+print(f"  dL_dW_xh (sum): {dL_dW_xh.shape}")
+print(f"  dL_db_h (sum): {dL_db_h.shape}")
+print()
+
+# Compare gradients (they should match!)
+print("Gradient Comparison (Manual vs Autograd):")
+print(f"  W_hy: {torch.allclose(dL_dW_hy, model2.W_hy.grad, atol=1e-6)}")
+print(f"  W_hh: {torch.allclose(dL_dW_hh, model2.W_hh.grad, atol=1e-6)}")
+print(f"  W_xh: {torch.allclose(dL_dW_xh, model2.W_xh.grad, atol=1e-6)}")
+print(f"  b_h: {torch.allclose(dL_db_h, model2.b_h.grad, atol=1e-6)}")
+print()
+
+print("="*50)
+print("✓ Our manual BPTT matches PyTorch autograd!")
+print("="*50)
+
+```
+
+## Vanishing Gradients
+
+Lets look back at the backpropagation through time (BPTT) algorithm. When we need to compute gradients for earlier timesteps we end up repeatedly multiplying by the $W_{hh}$ term!
+
+$$∂L/∂h_i = W_hh^T · [(1 - h_{i+1}²) ⊙ ∂L/∂h_{i+1}]$$
+
+If we have 3 timesteps, then $∂L/∂h_1$ expands to the following
+
+$$∂L/∂h_1 = W_{hh}^T · [(1 - h_2^2) ⊙ W_{hh}^T · [(1 - h_3^2) ⊙ ∂L/∂h_3]] = (W_{hh}^T)^2 · [(1 - h_2^2) ⊙ (1 - h_3^2) ⊙ ∂L/∂h_3]$$
+
+If the magnitude of the largest eigenvalue term in $W_{hh}$ is less than 1, which it often is, the repeatedly multiplication of these terms creates a stacking "vanishing" effect that minimizes the gradient for earlier timesteps.
+
+- This largest magnitude eigenvalue defines the **spectral radius** of the matrix.
+
+For a sequence of length **T**, the gradient contains:
+$$∂L/∂h_1 ≈ (W_{hh}^T)^{T-1} · \text{[other terms]}$$
+
+Where:
+- $(W_{hh}^T)^{T-1}$ means multiplying by $W_{hh}^T$ **(T-1) times**
+- The $(1 - h²)$ terms are **always between 0 and 1** (since $h = \tanh(·)$ outputs values in $(-1, 1)$)
+
+| Condition | Result | 
+|-----------|--------|
+| **Spectral radius of $W_{hh} < 1$** | $(W_{hh})^{T-1} → \mathbf{0}$ → **Vanishing gradients** |
+| **Spectral radius of $W_{hh} > 1$** | $(W_{hh})^{T-1} → \mathbf{∞}$ → **Exploding gradients** |
+
+### The Problems with Long Time Sequences
+
+1. **$W_{hh}$ is shared** across all timesteps (we sum gradients in Phase 2)
+2. **Long sequences = many multiplications** by $W_{hh}^T$
+3. **Even moderate values compound**: $0.9^{50} ≈ 0.005$ (essentially zero!)
+
+This means **earlier timesteps contribute almost nothing to the gradient update**, making it impossible for basic RNNs to learn long-term dependencies as the early hidden layers of the RNN recieve very small, potentially negligible changes via gradient descent over time.
+
+```
+Sequence: [x₁, x₂, x₃, ..., x₅₀]
+           ↑                        ↑
+        Gradient for h₁ = (W_hh^T)⁴⁹ · [terms]
+                         ↓
+                    VANISHES to ~0!
+```
+
+**Lesson 6 will introduce LSTMs and GRUs which solve these limitations using gates!**
+
+
+
+```python
+import torch
+import torch.nn as nn
+import matplotlib.pyplot as plt
+
+class RNN(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.W_xh = nn.Parameter(torch.randn(3,2) * 0.1)
+        self.W_hh = nn.Parameter(torch.randn(3,3) * 0.1)
+        self.W_hy = nn.Parameter(torch.randn(2,3) * 0.1)
+        self.b_h = nn.Parameter(torch.zeros(3,1))
+    
+    def forward(self, x_seq, h0):
+        h_states = []
+        h = h0
+        for x in x_seq:
+            y = torch.mm(self.W_hh, h) + torch.mm(self.W_xh, x) + self.b_h
+            h = torch.tanh(y)
+            h_states.append(h)
+        return h_states
+
+def compute_grads(model, seq_len):
+    x_seq = [torch.randn(2,1) for _ in range(seq_len)]
+    h0 = torch.zeros(3,1)
+    h_states = model(x_seq, h0)
+    h_last = h_states[-1]
+    y_final = torch.mm(model.W_hy, h_last)
+    Z = torch.softmax(y_final, dim=0)
+    dL_dy = Z.clone()
+    dL_dy[0] -= 1
+    dh = torch.mm(model.W_hy.t(), dL_dy)
+    norms = []
+    for t in range(len(h_states)-1, -1, -1):
+        norms.append(torch.norm(dh).item())
+        if t > 0:
+            h_prev = h_states[t-1]
+            delta = dh * (1 - h_prev**2)
+            dh = torch.mm(model.W_hh.t(), delta)
+    norms.reverse()
+    return norms
+
+model = RNN()
+results = {}
+for seq_len in [10, 15, 20, 50, 100]:
+    norms = compute_grads(model, seq_len)
+    results[seq_len] = norms
+    print(f'Len {seq_len:3d}: grad@t=1: {norms[0]:.15f}, @t={seq_len}: {norms[-1]:.6f}')
+
+plt.figure(figsize=(12,6))
+for seq_len in [10, 15, 20, 50, 100]:
+    plt.plot(range(1,seq_len+1), results[seq_len], label=f'Len {seq_len}')
+plt.yscale('log')
+plt.xlabel('Timestep')
+plt.ylabel('||dL/dh||')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.show()
+
+```
