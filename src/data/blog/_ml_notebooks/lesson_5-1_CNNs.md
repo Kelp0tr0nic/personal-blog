@@ -2,7 +2,7 @@
 title: Lesson 5-1 Cnns
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2026-05-29T09:53:47Z
+pubDatetime: 2026-05-30T08:27:37Z
 modDatetime:
 draft: true
 tags:
