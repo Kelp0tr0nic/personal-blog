@@ -2,7 +2,7 @@
 title: Lesson 0
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2026-07-15T08:08:28Z
+pubDatetime: 2026-07-16T08:11:56Z
 modDatetime:
 draft: true
 tags:
