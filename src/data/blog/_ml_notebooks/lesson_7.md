@@ -2,7 +2,7 @@
 title: Lesson 7
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2026-08-07T07:13:32Z
+pubDatetime: 2026-08-08T06:51:21Z
 modDatetime:
 draft: true
 tags:
