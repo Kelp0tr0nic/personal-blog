@@ -2,7 +2,7 @@
 title: Lesson 5-2 Rnns
 author: Kalpesh Chavan
 description: Lecture notes converted from Jupyter notebooks.
-pubDatetime: 2026-11-09T15:18:22Z
+pubDatetime: 2026-11-10T14:24:22Z
 modDatetime:
 draft: true
 tags:
